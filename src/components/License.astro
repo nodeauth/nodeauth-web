@@ -1,0 +1,159 @@
+---
+// src/components/License.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section id="license" class="section-wrapper">
+    <div class="section-subtitle">{t('price.subtitle')}</div>
+    <h2 class="section-title">{t('price.title')}</h2>
+    <p class="section-desc" set:html={t('price.desc')}></p>
+    
+    <div class="pricing-card">
+        <h3>{t('price.plan')}</h3>
+        <div class="price">{t('price.price')} <span>/ {t('price.period')}</span></div>
+        <ul class="pricing-list">
+            <li>{t('price.f1')}</li>
+            <li>{t('price.f2')}</li>
+            <li>{t('price.f3')}</li>
+            <li>{t('price.f4')}</li>
+        </ul>
+        <a href="https://license.nodeauth.io/buy" class="btn-primary-inverse">{t('price.btn')}</a>
+        <div class="payment-icons">
+            <span>Visa / Stripe</span>
+            <span>WeChat Pay</span>
+            <span>Crypto (USDT)</span>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #71717a; font-weight: 400;">{t('price.help')}</p>
+    </div>
+</section>
+
+<style>
+/* 3. Pricing Card (Black Card Style) */
+.pricing-card {
+    background: linear-gradient(145deg, #18181b 0%, #000000 100%);
+    color: white;
+    padding: clamp(1.2rem, 5vw, 4.5rem);
+    border-radius: clamp(24px, 4vw, 40px);
+    text-align: left;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-sizing: border-box;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+.pricing-card:hover::before {
+    opacity: 1;
+}
+
+.pricing-card h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #a1a1aa;
+}
+
+.pricing-card .price {
+    font-size: clamp(2rem, 10vw, 5rem);
+    font-weight: 700;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: clamp(-1px, -0.3vw, -2.5px);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 8px;
+}
+
+.pricing-card .price span {
+    font-size: clamp(0.85rem, 3.5vw, 1.3rem);
+    font-weight: 400;
+    opacity: 0.5;
+    letter-spacing: 0;
+}
+
+.pricing-list {
+    list-style: none;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.pricing-list li {
+    margin-bottom: 1.2rem;
+    font-size: clamp(0.85rem, 4vw, 1.2rem);
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.6rem, 2vw, 1rem);
+    color: #e4e4e7;
+    line-height: 1.5;
+}
+
+.pricing-list li::before {
+    content: '✓';
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.btn-primary-inverse {
+    background: white;
+    color: black;
+    display: block;
+    text-align: center;
+    padding: clamp(1rem, 3vw, 1.4rem);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    border-radius: 980px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-primary-inverse:hover {
+    background: #f4f4f5;
+    transform: scale(1.02);
+}
+
+.payment-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: clamp(1.2rem, 3vw, 2rem);
+    opacity: 0.5;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    /* Kept only the layout overrides, sizing handled by clamp */
+    .payment-icons { flex-wrap: wrap; gap: 1rem; }
+}
+</style>

@@ -1,0 +1,81 @@
+name: Deploy NodeAuth Web
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check Required Secrets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          REQUIRED_VARS=("CLOUDFLARE_API_TOKEN" "CLOUDFLARE_ACCOUNT_ID")
+          
+          MISSING_VARS=()
+          for VAR in "${REQUIRED_VARS[@]}"; do
+            if [ -z "${!VAR}" ]; then
+              MISSING_VARS+=("$VAR")
+            fi
+          done
+          
+          if [ ${#MISSING_VARS[@]} -ne 0 ]; then
+            echo "❌ Error: The following required secrets are missing or empty:"
+            for VAR in "${MISSING_VARS[@]}"; do
+              echo "  - $VAR"
+            done
+            echo "Please configure them in your repository's Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          echo "✅ All required secrets are present."
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: 'package.json'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Prepare Wrangler Config (Backup)
+        run: cp wrangler.toml wrangler.toml.bak
+
+      - name: Install TOML Parser
+        run: npm install @iarna/toml --no-save
+
+      - name: Inject Configurations via AST Parser
+        env:
+          CONFIG_FILE: ${{ env.WRANGLER_CONFIG || 'wrangler.toml' }}
+          CLOUDFLARE_WORKERS_NAME: ${{ secrets.CLOUDFLARE_WORKERS_NAME || 'nodeauth-web' }}
+          CLOUDFLARE_WORKERS_DEV: ${{ secrets.CLOUDFLARE_WORKERS_DEV }}
+          CLOUDFLARE_WORKERS_PREVIEW_URLS: ${{ secrets.CLOUDFLARE_WORKERS_PREVIEW_URLS }}
+          CLOUDFLARE_WORKERS_ROUTES: ${{ secrets.CLOUDFLARE_WORKERS_ROUTES }}
+        run: node scripts/wrangler.js
+
+      - name: Build Astro Project
+        run: npm run build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          wranglerVersion: '4.75.0'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --minify
+
+      - name: Restore Wrangler Config
+        if: always()
+        run: |
+          if [ -f wrangler.toml.bak ]; then
+            mv wrangler.toml.bak wrangler.toml
+          fi

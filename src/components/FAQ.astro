@@ -1,0 +1,100 @@
+---
+// src/components/FAQ.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section class="section-wrapper">
+    <div class="section-subtitle">{t('faq.subtitle')}</div>
+    <h2 class="section-title">{t('faq.title')}</h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <h3>{t('faq.q1')}</h3>
+            <p>{t('faq.a1')}</p>
+        </div>
+        <div class="faq-item">
+            <h3>{t('faq.q2')}</h3>
+            <p>{t('faq.a2')}</p>
+        </div>
+        <div class="faq-item">
+            <h3>{t('faq.q3')}</h3>
+            <p>{t('faq.a3')}</p>
+        </div>
+        <div class="faq-item">
+            <h3>{t('faq.q4')}</h3>
+            <p>{t('faq.a4')}</p>
+        </div>
+    </div>
+</section>
+
+<style>
+/* 6. FAQ Accordion */
+.faq-list {
+    max-width: 1440px;
+    margin: 3rem auto 0;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+    row-gap: 2rem;
+}
+
+
+.faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.faq-item:nth-last-child(1),
+.faq-item:nth-last-child(2) {
+    border-bottom: none;
+}
+.faq-item:hover {
+    opacity: 0.8;
+}
+
+.faq-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.4;
+}
+
+.faq-item h3::after {
+    content: '+';
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .faq-list {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    
+    /* Ensure the 2nd to last item gets its border back on mobile */
+    .faq-item:nth-last-child(2) {
+        border-bottom: 1px solid var(--border);
+    }
+}
+</style>

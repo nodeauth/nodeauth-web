@@ -1,0 +1,233 @@
+---
+// src/components/Home.astro
+import Hero from './Hero.astro';
+import FeatureBlock from './FeatureBlock.astro';
+import License from './License.astro';
+import FAQ from './FAQ.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Hero />
+
+<!-- Extension Feature Block -->
+<FeatureBlock
+    id="extension"
+    subtitle={t('ext.subtitle')}
+    title={t('ext.title')}
+    description={t('ext.desc')}
+>
+    <div slot="actions" style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+        <a href="https://chromewebstore.google.com/detail/nodeauth/ejknfokfdojopelcbidgchnopeapnjgd" class="btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="NodeAuth 2FA Chrome Extension" title="NodeAuth 2FA Chrome Extension" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.95rem;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M16 8a8 8 0 0 1-7.022 7.94l1.902-7.098a3 3 0 0 0 .05-1.492A3 3 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8M0 8a8 8 0 0 0 7.927 8l1.426-5.321a3 3 0 0 1-.723.255 3 3 0 0 1-1.743-.147 3 3 0 0 1-1.043-.7L.633 4.876A8 8 0 0 0 0 8m5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a3 3 0 0 0-1.252.243 2.99 2.99 0 0 0-1.81 2.59M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+            </svg>
+            Chrome Web Store
+        </a>
+        <a href="https://microsoftedge.microsoft.com/addons/detail/nodeauth/bclpbakllopgjhelikbhccpjkgbmfpgd" class="btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="NodeAuth 2FA Edge Add-on" title="NodeAuth 2FA Edge Add-on" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.95rem;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.84 3.84 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006z" />
+                <path d="M.01 7.753a8.14 8.14 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5 5 0 0 1-.785-.377h-.01l-.12-.075a5.5 5.5 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285q.194.001.384.033a4 4 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49m10.263 7.912q.133-.04.265-.084-.153.047-.307.086z" />
+                <path d="M10.228 15.667a5 5 0 0 0 .303-.086l.082-.025a8.02 8.02 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35q-.322.168-.663.294a6.4 6.4 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644q.003-.203.046-.399a4.54 4.54 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996" />
+            </svg>
+            Edge Add-ons
+        </a>
+        <a href="https://addons.mozilla.org/zh-CN/firefox/addon/nodeauth" class="btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="NodeAuth 2FA Firefox Add-on" title="NodeAuth 2FA Firefox Add-on" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.95rem;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M13.384 3.408c.535.276 1.22 1.152 1.556 1.963a8 8 0 0 1 .503 3.897l-.009.077-.026.224A7.758 7.758 0 0 1 .006 8.257v-.04q.025-.545.114-1.082c.01-.074.075-.42.09-.489l.01-.051a6.6 6.6 0 0 1 1.041-2.35q.327-.465.725-.87.35-.358.758-.65a1.5 1.5 0 0 1 .26-.137c-.018.268-.04 1.553.268 1.943h.003a5.7 5.7 0 0 1 1.868-1.443 3.6 3.6 0 0 0 .021 1.896q.105.07.2.152c.107.09.226.207.454.433l.068.066.009.009a2 2 0 0 0 .213.18c.383.287.943.563 1.306.741.201.1.342.168.359.193l.004.008c-.012.193-.695.858-.933.858-2.206 0-2.564 1.335-2.564 1.335.087.997.714 1.839 1.517 2.357a4 4 0 0 0 .439.241q.114.05.228.094c.325.115.665.18 1.01.194 3.043.143 4.155-2.804 3.129-4.745v-.001a3 3 0 0 0-.731-.9 3 3 0 0 0-.571-.37l-.003-.002a2.68 2.68 0 0 1 1.87.454 3.92 3.92 0 0 0-3.396-1.983q-.116.001-.23.01l-.042.003V4.31h-.002a4 4 0 0 0-.8.14 7 7 0 0 0-.333-.314 2 2 0 0 0-.2-.152 4 4 0 0 1-.088-.383 5 5 0 0 1 1.352-.289l.05-.003c.052-.004.125-.01.205-.012C7.996 2.212 8.733.843 10.17.002l-.003.005.003-.001.002-.002h.002l.002-.002h.015a.02.02 0 0 1 .012.007 2.4 2.4 0 0 0 .206.48q.09.153.183.297c.49.774 1.023 1.379 1.543 1.968.771.874 1.512 1.715 2.036 3.02l-.001-.013a8 8 0 0 0-.786-2.353" />
+            </svg>
+            Firefox Add-ons
+        </a>
+    </div>
+    <!-- Custom visual via Slot: Extension Mockup -->
+    <div style="width: 100%; max-width: 320px; background: #f8fafc; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--border); overflow: hidden; margin: 0 auto; text-align: left; transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: transform 0.4s ease;" class="ext-mockup">
+        <!-- Top Header -->
+        <div style="background: #11265f; color: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.05rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                NodeAuth
+            </div>
+            <div style="display: flex; gap: 12px; opacity: 0.8;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+        </div>
+        <!-- Search Bar -->
+        <div style="padding: 12px 16px 4px; background: white;">
+            <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 6px 12px; display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 0.85rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                搜索账号...
+            </div>
+        </div>
+        <!-- Tabs -->
+        <div style="padding: 8px 16px 12px; background: white; display: flex; gap: 8px; font-size: 0.75rem;">
+            <div style="background: #11265f; color: white; padding: 4px 12px; border-radius: 12px; font-weight: 500;">全部 (384)</div>
+            <div style="background: #f1f5f9; color: #64748b; padding: 4px 12px; border-radius: 12px;">未分类 (352)</div>
+            <div style="background: #f1f5f9; color: #64748b; padding: 4px 12px; border-radius: 12px;">Scan (32)</div>
+        </div>
+        <!-- Account List -->
+        <div style="padding: 0 12px 12px; display: flex; flex-direction: column; gap: 10px; background: #f8fafc; margin-top: 4px;">
+            <!-- Card 1 (Animated) -->
+            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); position: relative; overflow: hidden; border: 1px solid #e2e8f0;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div style="font-weight: 600; font-size: 0.9rem; color: #1e293b; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">google.com</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">alice@gmail.com</div>
+                </div>
+                <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">842 901</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                        17
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                </div>
+                <!-- Animated Copied Button -->
+                <div class="anim-copied-btn" style="position: absolute; right: 12px; top: 12px; bottom: 12px; width: 120px; background: #2d436a; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 500; opacity: 0; pointer-events: none;">
+                    已复制
+                </div>
+                <!-- Cursor -->
+                <svg class="anim-cursor" style="position: absolute; right: 20px; bottom: -15px; z-index: 10;" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.24c.45 0 .67-.54.35-.85L6.35 3.56a.5.5 0 0 0-.85.35z" fill="white" stroke="black" stroke-width="1.5"/></svg>
+            </div>
+            
+            <!-- Card 2 (Github) -->
+            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; color: #1e293b; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div style="font-weight: 600; font-size: 0.9rem; color: #1e293b;">github.com</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">alice@github.com</div>
+                </div>
+                <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">516 994</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                        17
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                </div>
+            </div>
+
+            <!-- Card 3 (X) -->
+            <div style="background: white; border-radius: 10px; padding: 12px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #f8fafc; color: #0f1419; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div style="font-weight: 600; font-size: 0.9rem; color: #1e293b;">x.com</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">alice@x.com</div>
+                </div>
+                <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">705 599</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                        17
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Nav -->
+        <div style="border-top: 1px solid #e2e8f0; display: flex; padding: 8px 0; background: white;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; color: #11265f; gap: 4px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                <span style="font-size: 0.7rem; font-weight: 600;">账号</span>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; color: #94a3b8; gap: 4px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span style="font-size: 0.7rem;">设置</span>
+            </div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<!-- Wiki Feature Block -->
+<FeatureBlock
+    subtitle={t('wiki.subtitle')}
+    title={t('wiki.title')}
+    description={t('wiki.desc')}
+    buttonText={t('wiki.btn')}
+    buttonLink="https://wiki.nodeauth.io"
+    reverse={true}
+>
+    <!-- Custom visual via Slot: Terminal Mockup -->
+    <div style="width: 100%; max-width: 380px; background: #1e1e1e; border-radius: 12px; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; margin: 0 auto; text-align: left; color: #d4d4d4; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.85rem; transform: perspective(1000px) rotateY(5deg) rotateX(5deg); transition: transform 0.4s ease;" class="term-mockup">
+        <!-- Terminal Header -->
+        <div style="padding: 12px 16px; background: #2d2d2d; display: flex; gap: 8px; border-bottom: 1px solid #111;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+        </div>
+        <!-- Terminal Body -->
+        <div style="padding: 24px 20px; line-height: 1.6;">
+            <div class="term-l1" style="margin-bottom: 4px;"><span style="color: #4ade80;">➜</span> <span style="color: #60a5fa; font-weight: 600;">~</span> <span style="color: #f8f8f2;">docker run -d \</span></div>
+            <div class="term-l2" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">-p 3000:3000 \</span></div>
+            <div class="term-l3" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">-v ./data:/app/data \</span></div>
+            <div class="term-l4" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">--env-file .env \</span></div>
+            <div class="term-l5" style="margin-bottom: 16px; padding-left: 20px;"><span style="color: #f8f8f2;">nodeauth/nodeauth-worker:latest</span></div>
+            <div class="term-l6" style="color: #808080;">Pulling from nodeauth/nodeauth-worker...</div>
+            <div class="term-l7" style="color: #808080;">Status: Downloaded newer image</div>
+            <div class="term-l8" style="color: #4ade80; margin-top: 12px; font-weight: 600;">✓ Container started on port 3000</div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<License />
+
+<FAQ />
+
+<style>
+.ext-mockup {
+    animation: float 6s ease-in-out infinite;
+}
+.term-mockup {
+    animation: float 7s ease-in-out infinite alternate;
+}
+@keyframes typeCode {
+    0%, 40% { width: 0; }
+    60%, 90% { width: 100%; }
+    100% { width: 0; }
+}
+.anim-code {
+    animation: typeCode 4s steps(7, end) infinite;
+}
+@keyframes cursorClickExt {
+    0%, 20% { transform: translate(50px, 40px); opacity: 0; }
+    30%, 40% { transform: translate(0, 0); opacity: 1; }
+    45% { transform: translate(0, 0) scale(0.85); opacity: 1; }
+    50%, 80% { transform: translate(0, 0) scale(1); opacity: 1; }
+    90%, 100% { transform: translate(50px, 40px); opacity: 0; }
+}
+.anim-cursor {
+    animation: cursorClickExt 5s infinite;
+}
+@keyframes showCopiedBtn {
+    0%, 48% { opacity: 0; }
+    50%, 80% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+}
+.anim-copied-btn {
+    animation: showCopiedBtn 5s infinite;
+}
+
+@keyframes termLine1 { 0%, 5% { opacity: 0; } 10%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine2 { 0%, 15% { opacity: 0; } 20%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine3 { 0%, 25% { opacity: 0; } 30%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine4 { 0%, 35% { opacity: 0; } 40%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine5 { 0%, 50% { opacity: 0; } 55%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine6 { 0%, 65% { opacity: 0; } 70%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine7 { 0%, 75% { opacity: 0; } 80%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine8 { 0%, 80% { opacity: 0; } 85%, 90% { opacity: 1; } 100% { opacity: 0; } }
+
+.term-l1 { animation: termLine1 10s infinite; }
+.term-l2 { animation: termLine2 10s infinite; }
+.term-l3 { animation: termLine3 10s infinite; }
+.term-l4 { animation: termLine4 10s infinite; }
+.term-l5 { animation: termLine5 10s infinite; }
+.term-l6 { animation: termLine6 10s infinite; }
+.term-l7 { animation: termLine7 10s infinite; }
+.term-l8 { animation: termLine8 10s infinite; }
+</style>

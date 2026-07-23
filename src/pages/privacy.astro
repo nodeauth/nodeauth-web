@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="隐私政策 | NodeAuth" description="NodeAuth 隐私政策 - 零知识加密与本地优先">
+    <div class="legal-container">
+        <h1>隐私政策</h1>
+        <p class="last-updated">最后更新：2026年7月</p>
+
+        <div class="legal-content">
+            <p>NodeAuth 致力于保护您的隐私与数据安全，我们始终遵循<strong>“零知识”</strong>与<strong>“本地优先”</strong>的设计原则。</p>
+
+            <h3>一、 信息收集与处理</h3>
+            <p><strong>1. 我们不收集的信息：</strong>我们不收集、不存储、也不传输任何个人身份信息（PII）。我们不使用任何分析、追踪像素或第三方监控工具。您的主密钥、TOTP 种子和保管库数据永远不会发送到我们的服务器。</p>
+            <p><strong>2. 授权中心与支付：</strong>当您购买 NodeAuth 授权时，我们仅收集履行订单和防范欺诈所必需的基本信息，如您的电子邮件地址。所有支付均通过官方授权网关（如 Stripe）安全处理。我们不会在我们的服务器上存储您的完整信用卡或敏感财务信息。</p>
+
+            <h3>二、 本地数据与权限（浏览器插件）</h3>
+            <p><strong>1. 本地处理：</strong>您的安全数据使用 AES-GCM 加密，并存储在插件的本地存储中。用于握手的敏感密钥仅保存在浏览器的易失性内存中，并在会话关闭时销毁。</p>
+            <p><strong>2. 权限声明：</strong></p>
+            <ul>
+                <li><code>storage</code>：用于在本地保存您的加密保管库。</li>
+                <li><code>scripting</code> & <code>activeTab</code>：用于协助与授权的 NodeAuth 实例进行安全握手并提供自动填充服务。</li>
+                <li><code>alarms</code>：用于实现“自动锁定”安全功能。</li>
+            </ul>
+
+            <h3>三、 第三方服务</h3>
+            <p><strong>1. 防滥用验证：</strong>我们使用 Cloudflare Turnstile 来防止结账过程中的自动化滥用。该服务可能会收集基本遥测数据以验证人工交互，具体遵循 Cloudflare 的隐私政策。</p>
+            <p><strong>2. 可选的图标服务：</strong>如果您在设置中明确启用“图标”功能，插件将从公共服务（如 Google 或 Bitwarden）获取网站图标。这意味着您的账户域名将被共享给这些服务商以获取图标。<strong>此功能默认处于关闭状态</strong>，以确保您的账户列表默认情况下对任何第三方绝对不可见。</p>
+
+            <h3>四、 数据保留与共享</h3>
+            <p>除了您选择开启的可选功能外，我们绝不会向任何第三方出售、交易或共享您的个人数据。我们保留您的电子邮件地址仅用于授权交付和支持目的。您可以随时通过联系我们的支持团队请求删除您的电子邮件记录。</p>
+
+            <h3>五、 联系我们</h3>
+            <p>如果您对本隐私政策或您的数据处理有任何疑问，请联系我们：<a href="mailto:support@nodeauth.io">support@nodeauth.io</a></p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.legal-container {
+    padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(4rem, 8vw, 6rem);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.legal-container h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.last-updated {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.legal-content h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.legal-content p, .legal-content ul {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.legal-content ul {
+    padding-left: 1.5rem;
+}
+
+.legal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-content a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.legal-content a:hover {
+    color: var(--accent-hover);
+}
+</style>

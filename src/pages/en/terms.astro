@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Terms of Service | NodeAuth" description="NodeAuth Terms of Service">
+    <div class="legal-container">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last Updated: July 2026</p>
+
+        <div class="legal-content">
+            <h3>1. Acceptance of Terms</h3>
+            <p>By purchasing and using NodeAuth software licenses, you agree to these Terms of Service. If you do not agree with any part of these terms, you must not use our software.</p>
+
+            <h3>2. Digital Products</h3>
+            <p>NodeAuth provides proprietary software license codes for security and two-factor authentication (2FA) management. These are digital goods delivered instantly via email upon successful payment.</p>
+
+            <h3>3. Usage Rights</h3>
+            <p>A purchased license grants you a non-exclusive, non-transferable right to use the NodeAuth software in accordance with the specified limits of your purchased tier. You may not resell, distribute, or reverse-engineer the license codes or the core software.</p>
+
+            <h3>4. Account & Security</h3>
+            <p>You are responsible for safeguarding your license code. We do not offer recovery services for lost license keys due to our zero-knowledge architecture.</p>
+
+            <h3>5. Service Changes & Termination</h3>
+            <p>NodeAuth reserves the right to update these Terms of Service at any time. Continued use of the software after any changes constitutes acceptance of the new terms. We may suspend or terminate access to NodeAuth services if a license is found to be used in violation of these terms, without prior notice and without refund.</p>
+
+            <h3>6. Governing Law & Disputes</h3>
+            <p>These Terms shall be governed by and construed in accordance with applicable international law. Any disputes arising from or relating to these Terms shall be resolved through good-faith negotiation. For any legal inquiries, please contact us at: <a href="mailto:support@nodeauth.io">support@nodeauth.io</a>.</p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.legal-container {
+    padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(4rem, 8vw, 6rem);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.legal-container h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.last-updated {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.legal-content h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.legal-content p, .legal-content ul {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.legal-content ul {
+    padding-left: 1.5rem;
+}
+
+.legal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-content a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.legal-content a:hover {
+    color: var(--accent-hover);
+}
+</style>

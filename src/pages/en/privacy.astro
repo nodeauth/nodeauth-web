@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy | NodeAuth" description="NodeAuth Privacy Policy - Zero-Knowledge and Local-First">
+    <div class="legal-container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: July 2026</p>
+
+        <div class="legal-content">
+            <p>NodeAuth is committed to protecting your privacy and data security. We strictly adhere to the principles of <strong>Zero-Knowledge</strong> and <strong>Local-First</strong>.</p>
+
+            <h3>1. Information Collection & Processing</h3>
+            <p><strong>Information We DO NOT Collect:</strong> We do not collect, store, or transmit any personally identifiable information (PII). We do not use any analytics, tracking pixels, or third-party monitoring tools. Your master keys, TOTP seeds, and vault data are never sent to our servers.</p>
+            <p><strong>License Center & Payments:</strong> When you purchase a NodeAuth license, we collect only essential information required for order fulfillment and fraud prevention, such as your email address. All payments are securely processed through our authorized payment gateways (e.g., Stripe). We do not store your full credit card or sensitive financial information on our servers.</p>
+
+            <h3>2. Local Data & Permissions (Browser Extension)</h3>
+            <p><strong>Local Processing:</strong> Your security data is encrypted using AES-GCM and stored in the extension's local storage. Sensitive keys used for handshakes are kept only in the browser's volatile memory and are destroyed when the session is closed.</p>
+            <p><strong>Permission Justification:</strong></p>
+            <ul>
+                <li><code>storage</code>: To save your encrypted vault locally.</li>
+                <li><code>scripting</code> & <code>activeTab</code>: To facilitate secure handshakes with your authorized NodeAuth instance and provide auto-fill services.</li>
+                <li><code>alarms</code>: To implement the "Auto-Lock" security feature.</li>
+            </ul>
+
+            <h3>3. Third-Party Services</h3>
+            <p><strong>Abuse Prevention:</strong> We use Cloudflare Turnstile to prevent automated abuse during checkout. This service may collect basic telemetry to verify human interaction in accordance with Cloudflare's privacy policy.</p>
+            <p><strong>Optional Service Icons:</strong> If you explicitly enable the "Icons" feature in settings, the extension will fetch favicons from public services (such as Google or Bitwarden). This means your account domain names will be shared with these service providers. <strong>This feature is disabled by default</strong> to ensure your account list remains completely invisible to third parties.</p>
+
+            <h3>4. Data Retention & Sharing</h3>
+            <p>Except for the optional features mentioned above that you choose to enable, we do not sell, trade, or share your data with any third parties. We retain your email address solely for the purpose of license delivery and support. You may request deletion of your email record at any time by contacting our support team.</p>
+
+            <h3>5. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us at: <a href="mailto:support@nodeauth.io">support@nodeauth.io</a></p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+.legal-container {
+    padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 2rem) clamp(4rem, 8vw, 6rem);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.legal-container h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.last-updated {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.legal-content h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.legal-content p, .legal-content ul {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.legal-content ul {
+    padding-left: 1.5rem;
+}
+
+.legal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-content a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.legal-content a:hover {
+    color: var(--accent-hover);
+}
+</style>

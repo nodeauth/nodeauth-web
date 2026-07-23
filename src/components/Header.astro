@@ -1,0 +1,370 @@
+---
+// src/components/Header.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<nav>
+    <div class="nav-content">
+        <a href={lang === 'en' ? '/en/' : '/'} class="logo">
+        <img src="/logo.svg" alt="NodeAuth Logo" width="28" height="28" />
+        NodeAuth
+    </a>
+    <div class="links">
+        <a href="https://demo.nodeauth.io" target="_blank" rel="noopener noreferrer" class="external-link">
+            {t('nav.demo')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <a href="https://wiki.nodeauth.io" target="_blank" rel="noopener noreferrer" class="external-link">
+            {t('nav.docs')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <a href="#extension">{t('nav.extension')}</a>
+        <a href="#license">{t('nav.pricing')}</a>
+        <div class="mobile-actions">
+            <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <a href="https://github.com/nodeauth/nodeauth-worker" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="lang-selector">
+            <button aria-label="Select Language">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m5 8 6 6" />
+                    <path d="m4 14 6-6 2-3" />
+                    <path d="M2 5h12" />
+                    <path d="M7 2h1" />
+                    <path d="m22 22-5-10-5 10" />
+                    <path d="M14 18h6" />
+                </svg>
+                <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="lang-dropdown">
+                <a href="/" class={lang === 'zh' ? 'active' : ''}>简体中文</a>
+                <a href="/en/" class={lang === 'en' ? 'active' : ''}>English</a>
+            </div>
+        </div>
+
+        <div class="divider desktop-only"></div>
+
+        <button class="theme-toggle-btn desktop-only" aria-label="Toggle Theme">
+            <!-- Sun Icon (visible in dark mode) -->
+            <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line></svg>
+            <!-- Moon Icon (visible in light mode) -->
+            <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <div class="divider desktop-only"></div>
+
+        <a href="https://github.com/nodeauth/nodeauth-worker" class="github-link desktop-only" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path>
+            </svg>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('.menu-toggle');
+        const links = document.querySelector('.links');
+        if (toggle && links) {
+            toggle.addEventListener('click', () => {
+                links.classList.toggle('active');
+            });
+        }
+
+        const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+        themeToggles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    });
+</script>
+
+<style>
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1rem, 5vw, 2rem);
+    box-sizing: border-box;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    opacity: 1;
+}
+
+nav .logo img {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+nav .links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+nav a.external-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+nav a.external-link svg {
+    opacity: 0.5;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+nav a.external-link:hover svg {
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Reduced gap to accommodate dividers */
+}
+
+.divider {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+    margin: 0 0.2rem;
+}
+
+.lang-selector {
+    position: relative;
+}
+
+.lang-selector > button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.lang-selector > button:hover {
+    opacity: 1;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--nav-menu-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 120px;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+
+.lang-selector:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+}
+
+.lang-dropdown a {
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.lang-dropdown a:hover {
+    background: rgba(128, 128, 128, 0.1);
+}
+
+.lang-dropdown a.active {
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(128, 128, 128, 0.05);
+}
+
+.github-link {
+    color: var(--text-primary);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.github-link:hover {
+    opacity: 1;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+}
+
+.mobile-actions {
+    display: none;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 50%;
+}
+
+.theme-toggle-btn:hover {
+    opacity: 1;
+    background: rgba(128, 128, 128, 0.1);
+}
+
+:global(html[data-theme='dark']) .moon-icon { display: none; }
+:global(html[data-theme='light']) .sun-icon { display: none; }
+:global(html:not([data-theme])) .sun-icon { display: none; }
+
+
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav .links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--nav-menu-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2.5rem 0;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--border);
+        gap: 2.5rem;
+    }
+    nav .links a {
+        font-size: 1.1rem;
+        font-weight: 500;
+        width: 100%;
+        text-align: center;
+    }
+    nav .links.active {
+        display: flex;
+    }
+    nav {
+        padding: 0;
+    }
+    
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        width: 80%;
+        margin: 1rem auto 0;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+    }
+    
+    nav .links .mobile-actions a.github-link {
+        width: auto;
+        padding: 0.5rem;
+        text-align: center;
+    }
+    
+    .mobile-actions .theme-toggle-btn,
+    .mobile-actions .github-link {
+        transform: scale(1.3);
+    }
+}
+</style>

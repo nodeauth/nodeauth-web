@@ -1,0 +1,162 @@
+/* src/styles/global.css - NodeAuth Minimalist Light Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #fbfbfd;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --border: #d2d2d7;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(251, 251, 253, 0.75);
+    --nav-menu-bg: rgba(251, 251, 253, 0.98);
+    --btn-sec-bg: #ffffff;
+    --btn-sec-border: #e2e8f0;
+    --btn-sec-hover-bg: #f8fafc;
+    --btn-sec-hover-border: #cbd5e1;
+    --subtitle-color: #2563eb;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+:root[data-theme='dark'] {
+    --bg-color: #09090b;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --accent: #0a84ff;
+    --accent-hover: #409cff;
+    --border: #27272a;
+    --card-bg: #18181b;
+    --nav-bg: rgba(9, 9, 11, 0.75);
+    --nav-menu-bg: rgba(9, 9, 11, 0.98);
+    --btn-sec-bg: #18181b;
+    --btn-sec-border: #3f3f46;
+    --btn-sec-hover-bg: #27272a;
+    --btn-sec-hover-border: #52525b;
+    --subtitle-color: #60a5fa;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.5);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    width: 100%;
+    position: relative;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid transparent;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.35);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--btn-sec-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--btn-sec-border);
+    padding: 0.8rem 1.6rem;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover {
+    background: var(--btn-sec-hover-bg);
+    border-color: var(--btn-sec-hover-border);
+}
+
+/* Section Shared Utilities */
+.section-wrapper {
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 5vw, 2rem);
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.section-subtitle {
+    color: var(--subtitle-color);
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.section-desc {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto clamp(2rem, 5vw, 3rem) auto;
+    font-weight: 400;
+    line-height: 1.6;
+}

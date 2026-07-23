@@ -1,0 +1,77 @@
+---
+// src/components/FeatureBlock.astro
+export interface Props {
+  id?: string;
+  subtitle: string;
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonLink?: string;
+  reverse?: boolean;
+}
+
+const { 
+  id,
+  subtitle, 
+  title, 
+  description, 
+  buttonText, 
+  buttonLink = "#", 
+  reverse = false 
+} = Astro.props;
+---
+<section id={id} class={`feature-split section-wrapper ${reverse ? 'reverse' : ''}`}>
+    <div class="feature-text">
+        <div class="section-subtitle">{subtitle}</div>
+        <h2 class="section-title" set:html={title}></h2>
+        <p class="section-desc" style="margin-left: 0;">{description}</p>
+        {buttonText && <a href={buttonLink} target={buttonLink?.startsWith('http') ? '_blank' : '_self'} class="btn-secondary" style="margin-top: 1rem; display: inline-block;">{buttonText}</a>}
+        <slot name="actions" />
+    </div>
+    <div class="feature-visual">
+        <slot />
+    </div>
+</section>
+
+<style>
+/* 4 & 5. Feature Split Layout */
+.feature-split {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    text-align: left;
+}
+
+.feature-split.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1.2;
+}
+
+.feature-visual {
+    flex: 0.8;
+    width: 100%;
+    /* Removed background and border to let mockups float freely */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    padding: clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+}
+.feature-visual:hover {
+    transform: translateY(-8px);
+}
+
+@media (max-width: 768px) {
+    .feature-split, .feature-split.reverse {
+        flex-direction: column;
+        gap: clamp(2rem, 6vw, 4rem);
+    }
+}
+</style>
