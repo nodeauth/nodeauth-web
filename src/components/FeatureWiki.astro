@@ -1,0 +1,60 @@
+---
+import FeatureBlock from './FeatureBlock.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<!-- Wiki Feature Block -->
+<FeatureBlock
+    subtitle={t('wiki.subtitle')}
+    title={t('wiki.title')}
+    description={t('wiki.desc')}
+    buttonText={t('wiki.btn')}
+    buttonLink="https://wiki.nodeauth.io"
+    reverse={true}
+>
+    <!-- Custom visual via Slot: Terminal Mockup -->
+    <div style="width: 100%; max-width: 380px; background: #1e1e1e; border-radius: 12px; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; margin: 0 auto; text-align: left; color: #d4d4d4; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.85rem; transition: transform 0.4s ease;" class="term-mockup">
+        <!-- Terminal Header -->
+        <div style="padding: 12px 16px; background: #2d2d2d; display: flex; gap: 8px; border-bottom: 1px solid #111;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f; box-shadow: inset 0 0 4px rgba(0,0,0,0.2);"></div>
+        </div>
+        <!-- Terminal Body -->
+        <div style="padding: 24px 20px; line-height: 1.6;">
+            <div class="term-l1" style="margin-bottom: 4px;"><span style="color: #4ade80;">➜</span> <span style="color: #60a5fa; font-weight: 600;">~</span> <span style="color: #f8f8f2;">docker run -d \</span></div>
+            <div class="term-l2" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">-p 3000:3000 \</span></div>
+            <div class="term-l3" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">-v ./data:/app/data \</span></div>
+            <div class="term-l4" style="margin-bottom: 4px; padding-left: 20px;"><span style="color: #f8f8f2;">--env-file .env \</span></div>
+            <div class="term-l5" style="margin-bottom: 16px; padding-left: 20px;"><span style="color: #f8f8f2;">nodeauth/nodeauth-worker:latest</span></div>
+            <div class="term-l6" style="color: #808080;">Pulling from nodeauth/nodeauth-worker...</div>
+            <div class="term-l7" style="color: #808080;">Status: Downloaded newer image</div>
+            <div class="term-l8" style="color: #4ade80; margin-top: 12px; font-weight: 600;">✓ Container started on port 3000</div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<style>
+.term-mockup {
+    animation: float 7s ease-in-out infinite alternate;
+}
+@keyframes termLine1 { 0%, 5% { opacity: 0; } 10%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine2 { 0%, 15% { opacity: 0; } 20%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine3 { 0%, 25% { opacity: 0; } 30%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine4 { 0%, 35% { opacity: 0; } 40%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine5 { 0%, 50% { opacity: 0; } 55%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine6 { 0%, 65% { opacity: 0; } 70%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine7 { 0%, 75% { opacity: 0; } 80%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes termLine8 { 0%, 80% { opacity: 0; } 85%, 90% { opacity: 1; } 100% { opacity: 0; } }
+
+.term-l1 { animation: termLine1 10s infinite; }
+.term-l2 { animation: termLine2 10s infinite; }
+.term-l3 { animation: termLine3 10s infinite; }
+.term-l4 { animation: termLine4 10s infinite; }
+.term-l5 { animation: termLine5 10s infinite; }
+.term-l6 { animation: termLine6 10s infinite; }
+.term-l7 { animation: termLine7 10s infinite; }
+.term-l8 { animation: termLine8 10s infinite; }
+</style>

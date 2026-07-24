@@ -1,0 +1,161 @@
+---
+import FeatureBlock from './FeatureBlock.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<!-- Multi-device Feature Block -->
+<FeatureBlock
+    subtitle={t('feat.multi.subtitle')}
+    title={t('feat.multi.title')}
+    description={t('feat.multi.desc')}
+>
+    <div class="mockup-container" style="position: relative; width: 100%; max-width: 640px; margin: 0 auto; aspect-ratio: 16/11;">
+        <!-- PC -->
+        <div style="position: absolute; width: 75%; height: 75%; top: 5%; left: 5%; border-radius: 8px; box-shadow: var(--shadow-md); border: 1px solid var(--border); background: var(--card-bg); z-index: 1; display: flex; flex-direction: column; overflow: hidden; box-sizing: border-box;">
+            <div style="height: 16px; background: var(--bg-color); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 12px; gap: 6px;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--border);"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--border);"></div>
+            </div>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: var(--btn-sec-hover-bg);">
+                <!-- Card matching Image 1 -->
+                <div style="background: var(--card-bg); border-radius: 12px; padding: clamp(8px, 2vw, 14px) clamp(10px, 2.5vw, 18px); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.05); width: 95%; max-width: 420px; border: 1px solid var(--border); box-sizing: border-box;">
+                    <div style="display: flex; align-items: center; gap: clamp(8px, 1.5vw, 12px);">
+                        <div style="width: clamp(32px, 6vw, 40px); height: clamp(32px, 6vw, 40px); border-radius: 50%; background: var(--btn-sec-hover-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px);"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div style="text-align: left; min-width: 0;">
+                            <div style="font-weight: 700; font-size: clamp(0.7rem, 2vw, 1.1rem); color: var(--text-primary); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">google.com</div>
+                            <div style="font-size: clamp(0.55rem, 1.5vw, 0.8rem); color: var(--text-secondary); line-height: 1.2; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">alice@gmail.com</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+                        <div style="font-size: clamp(0.85rem, 2.5vw, 1.25rem); font-weight: 700; color: var(--text-primary); letter-spacing: 1px; white-space: nowrap;" class="anim-code-sync"></div>
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: clamp(18px, 3.5vw, 20px); height: clamp(18px, 3.5vw, 20px);">
+                                <circle cx="12" cy="12" r="10" fill="none" stroke="var(--border)" stroke-width="3"></circle>
+                                <circle class="sync-pie-circle" cx="12" cy="12" r="10" fill="none" stroke="var(--text-primary)" stroke-width="3" stroke-dasharray="62.83" stroke-dashoffset="0" transform="rotate(-90 12 12)"></circle>
+                            </svg>
+                            <span style="position: absolute; font-size: clamp(0.55rem, 1.2vw, 0.6rem); font-weight: 600; color: var(--text-secondary);">17</span>
+                        </div>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2.5" style="width: clamp(14px, 2.5vw, 16px); height: clamp(14px, 2.5vw, 16px);"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile (Removed Tablet) -->
+        <div style="position: absolute; width: 35%; height: 75%; bottom: -5%; right: 5%; border-radius: 16px; box-shadow: var(--shadow-lg); border: 3px solid var(--border); background: var(--card-bg); z-index: 3; display: flex; flex-direction: column; overflow: hidden; box-sizing: border-box;" class="anim-float">
+            <!-- Mobile Header/Notch area -->
+            <div style="padding: 12px; display: flex; justify-content: center; background: var(--btn-sec-hover-bg); border-bottom: 1px solid var(--border);">
+                <div style="width: 35%; height: 4px; background: var(--text-secondary); border-radius: 4px; opacity: 0.5;"></div>
+            </div>
+            
+            <!-- Mobile Content (List of Cards) -->
+            <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 8px; padding: 8px 6px; background: var(--btn-sec-hover-bg); box-sizing: border-box; overflow-y: auto;">
+                <!-- Card 1 -->
+                <div style="background: var(--card-bg); border-radius: 8px; padding: 6px 8px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 4px;">
+                    <div style="display: flex; align-items: center; gap: 6px; overflow: hidden; min-width: 0; flex: 1;">
+                        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--btn-sec-hover-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">
+                        <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px; white-space: nowrap;" class="anim-code-sync"></div>
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                            <svg width="14" height="14" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="none" stroke="var(--border)" stroke-width="3"></circle>
+                                <circle class="sync-pie-circle" cx="12" cy="12" r="10" fill="none" stroke="var(--text-primary)" stroke-width="3" stroke-dasharray="62.83" stroke-dashoffset="0" transform="rotate(-90 12 12)"></circle>
+                            </svg>
+                            <span style="position: absolute; font-size: 0.5rem; font-weight: 600; color: var(--text-secondary);">17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div style="background: var(--card-bg); border-radius: 8px; padding: 6px 8px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 4px;">
+                    <div style="display: flex; align-items: center; gap: 6px; overflow: hidden; min-width: 0; flex: 1;">
+                        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--btn-sec-hover-bg); color: var(--text-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">
+                        <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px; white-space: nowrap;">516 994</div>
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                            <svg width="14" height="14" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="none" stroke="var(--border)" stroke-width="3"></circle>
+                                <circle class="sync-pie-circle" cx="12" cy="12" r="10" fill="none" stroke="var(--text-primary)" stroke-width="3" stroke-dasharray="62.83" stroke-dashoffset="0" transform="rotate(-90 12 12)"></circle>
+                            </svg>
+                            <span style="position: absolute; font-size: 0.5rem; font-weight: 600; color: var(--text-secondary);">17</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div style="background: var(--card-bg); border-radius: 8px; padding: 6px 8px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 4px;">
+                    <div style="display: flex; align-items: center; gap: 6px; overflow: hidden; min-width: 0; flex: 1;">
+                        <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--btn-sec-hover-bg); color: var(--text-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0;">
+                        <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px; white-space: nowrap;">705 599</div>
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                            <svg width="14" height="14" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="none" stroke="var(--border)" stroke-width="3"></circle>
+                                <circle class="sync-pie-circle" cx="12" cy="12" r="10" fill="none" stroke="var(--text-primary)" stroke-width="3" stroke-dasharray="62.83" stroke-dashoffset="0" transform="rotate(-90 12 12)"></circle>
+                            </svg>
+                            <span style="position: absolute; font-size: 0.5rem; font-weight: 600; color: var(--text-secondary);">17</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<style>
+/* Base floats */
+.anim-float { animation: float 6s ease-in-out infinite alternate; animation-delay: -1s; }
+
+/* The synchronized pie chart countdown */
+@keyframes syncPieAnim {
+    0% { stroke-dashoffset: 0; stroke: var(--text-primary); opacity: 1; }
+    75% { stroke-dashoffset: 47.12; stroke: var(--text-primary); } /* 75% consumed */
+    75.1% { stroke: #ef4444; } /* turn red when 25% left */
+    96% { stroke-dashoffset: 62.83; stroke: #ef4444; opacity: 1; }
+    97%, 100% { stroke-dashoffset: 62.83; opacity: 0; }
+}
+.sync-pie-circle {
+    animation: syncPieAnim 10s linear infinite;
+    transition: stroke 0.2s;
+}
+
+/* The synchronized numbers */
+.anim-code-sync::after {
+    content: "842 901";
+    animation: syncNumAnim 10s infinite;
+}
+
+@keyframes syncNumAnim {
+    0%, 96% { 
+        content: "842 901";
+        filter: blur(0);
+        opacity: 1;
+        transform: scale(1);
+    }
+    97%, 99% { 
+        content: "842 901";
+        filter: blur(8px);
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% { 
+        content: "109 455";
+        filter: blur(0);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>

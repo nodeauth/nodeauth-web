@@ -9,7 +9,7 @@ const t = useTranslations(lang);
     <div class="footer-container">
         <div class="footer-brand">
             <div class="logo">NodeAuth</div>
-            <p>{t('footer.desc')}</p>
+            <p set:html={t('footer.desc')}></p>
         </div>
         
         <div class="footer-links-grid">
