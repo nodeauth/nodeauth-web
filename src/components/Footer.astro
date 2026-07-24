@@ -9,7 +9,7 @@ const t = useTranslations(lang);
     <div class="footer-container">
         <div class="footer-brand">
             <div class="logo">NodeAuth</div>
-            <p>{t('footer.desc')}</p>
+            <p set:html={t('footer.desc')}></p>
         </div>
         
         <div class="footer-links-grid">
@@ -28,8 +28,8 @@ const t = useTranslations(lang);
 
             <div class="footer-col">
                 <h4>{t('footer.col3.title')}</h4>
-                <a href={lang === 'en' ? '/en/terms' : '/terms'}>{t('footer.col3.l1')}</a>
-                <a href={lang === 'en' ? '/en/privacy' : '/privacy'}>{t('footer.col3.l2')}</a>
+                <a href={lang === 'cn' ? '/cn/terms' : '/terms'}>{t('footer.col3.l1')}</a>
+                <a href={lang === 'cn' ? '/cn/privacy' : '/privacy'}>{t('footer.col3.l2')}</a>
             </div>
 
             <div class="footer-col">

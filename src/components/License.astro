@@ -21,11 +21,11 @@ const t = useTranslations(lang);
         </ul>
         <a href="https://license.nodeauth.io/buy" class="btn-primary-inverse">{t('price.btn')}</a>
         <div class="payment-icons">
-            <span>Visa / Stripe</span>
+            <span>Visa / Master</span>
             <span>WeChat Pay</span>
             <span>Crypto (USDT)</span>
         </div>
-        <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #71717a; font-weight: 400;">{t('price.help')}</p>
+        <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #71717a; font-weight: 400;" set:html={t('price.help')}></p>
     </div>
 </section>
 

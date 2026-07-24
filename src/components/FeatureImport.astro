@@ -1,0 +1,92 @@
+---
+import FeatureBlock from './FeatureBlock.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<!-- Import Feature Block -->
+<FeatureBlock
+    subtitle={t('feat.import.subtitle')}
+    title={t('feat.import.title')}
+    description={t('feat.import.desc')}
+    buttonText={t('feat.import.btn')}
+    buttonLink={lang === 'en' ? 'https://wiki.nodeauth.io/en/data/import' : 'https://wiki.nodeauth.io/data/import'}
+    reverse={true}
+>
+    <div class="mockup-container" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center; max-width: 520px; margin: 0 auto; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; height: 380px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <!-- Badges perfectly animated into center -->
+        <div class="anim-gravity-1" style="position: absolute; top: 40%; left: 50%; background: var(--bg-color); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); z-index: 2; white-space: nowrap;">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0.007C5.373 0.007 0 5.376 0 11.999c0 6.624 5.373 11.994 12 11.994S24 18.623 24 12C24 5.376 18.627 0.007 12 0.007Zm-0.895 4.857h1.788c0.484 0 0.729 0.002 0.914 0.096a0.86 0.86 0 0 1 0.377 0.377c0.094 0.185 0.095 0.428 0.095 0.912v6.016c0 0.12 0 0.182 -0.015 0.238a0.427 0.427 0 0 1 -0.067 0.137 0.923 0.923 0 0 1 -0.174 0.162l-0.695 0.564c-0.113 0.092 -0.17 0.138 -0.191 0.194a0.216 0.216 0 0 0 0 0.15c0.02 0.055 0.078 0.101 0.191 0.193l0.695 0.565c0.094 0.076 0.14 0.115 0.174 0.162 0.03 0.042 0.053 0.087 0.067 0.137a0.936 0.936 0 0 1 0.015 0.238v2.746c0 0.484 -0.001 0.727 -0.095 0.912a0.86 0.86 0 0 1 -0.377 0.377c-0.185 0.094 -0.43 0.096 -0.914 0.096h-1.788c-0.484 0 -0.726 -0.002 -0.912 -0.096a0.86 0.86 0 0 1 -0.377 -0.377c-0.094 -0.185 -0.095 -0.428 -0.095 -0.912v-6.016c0 -0.12 0 -0.182 0.015 -0.238a0.437 0.437 0 0 1 0.067 -0.139c0.034 -0.047 0.08 -0.083 0.174 -0.16l0.695 -0.564c0.113 -0.092 0.17 -0.138 0.191 -0.194a0.216 0.216 0 0 0 0 -0.15c-0.02 -0.055 -0.078 -0.101 -0.191 -0.193l-0.695 -0.565a0.92 0.92 0 0 1 -0.174 -0.162 0.437 0.437 0 0 1 -0.067 -0.139 0.92 0.92 0 0 1 -0.015 -0.236V6.25c0 -0.484 0.001 -0.727 0.095 -0.912a0.86 0.86 0 0 1 0.377 -0.377c0.186 -0.094 0.428 -0.096 0.912 -0.096z" fill="#2185FF"></path></svg> 1Password <span style="color:var(--text-secondary);font-size:0.7rem;">.1pux</span>
+        </div>
+        <div class="anim-gravity-2" style="position: absolute; top: 40%; left: 50%; background: var(--bg-color); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); z-index: 2; white-space: nowrap;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="4 4 40 40"><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M24,34.7977c4.7152-2.5049,7.7884-5.8753,7.7884-8.6581v-11.1835h-7.7761l-.0123,19.8417Z"/><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M23.3973,38.3619c.3782.1842.8271.1842,1.2053,0,6.0876-2.9643,10.6295-7.5417,10.6295-12.2221v-13.2574c0-.7635-.6189-1.3824-1.3824-1.3824h-9.8497,0-9.8497c-.7635,0-1.3824.6189-1.3824,1.3824v13.2574c0,4.6804,4.5419,9.2578,10.6295,12.2221Z"/><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M16,5.5h-6.5c-2.2091,0-4,1.7909-4,4v6.5"/><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M42.5,16v-6.5c0-2.2091-1.7909-4-4-4h-6.5"/><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5.5,32v6.5c0,2.2091,1.7909,4,4,4h6.5"/><path fill="none" stroke="#175DDC" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M32,42.5h6.5c2.2091,0,4-1.7909,4-4v-6.5"/></svg> Bitwarden <span style="color:var(--text-secondary);font-size:0.7rem;">.csv</span>
+        </div>
+        <div class="anim-gravity-3" style="position: absolute; top: 40%; left: 50%; background: var(--bg-color); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); z-index: 2; white-space: nowrap;">
+            <svg width="18" height="18" viewBox="60 60 384 384" xmlns="http://www.w3.org/2000/svg"><path fill="#1A73E8" d="M440,255.99997v0.00006C440,273.12085,426.12085,287,409.00003,287H302l-46-93.01001l49.6507-85.9951c8.56021-14.82629,27.51834-19.9065,42.34518-11.34724l0.00586,0.0034c14.82776,8.55979,19.90875,27.51928,11.34857,42.34682L309.70001,225h99.30002C426.12085,225,440,238.87917,440,255.99997z"/><path fill="#EA4335" d="M348.00174,415.34897l-0.00586,0.00339c-14.82684,8.55927-33.78497,3.47903-42.34518-11.34723L256,318.01001l-49.65065,85.99509c-8.5602,14.82629-27.51834,19.90652-42.34517,11.34729l-0.00591-0.00342c-14.82777-8.55978-19.90875-27.51929-11.34859-42.34683L202.29999,287L256,285l53.70001,2l49.6503,86.00214C367.91049,387.82968,362.8295,406.78918,348.00174,415.34897z"/><path fill="#FBBC04" d="M256,193.98999L242,232l-39.70001-7l-49.6503-86.00212c-8.56017-14.82755-3.47919-33.78705,11.34859-42.34684l0.00591-0.00341c14.82683-8.55925,33.78497-3.47903,42.34517,11.34726L256,193.98999z"/><path fill="#34A853" d="M248,225l-36,62H102.99997C85.87916,287,72,273.12085,72,256.00003v-0.00006C72,238.87917,85.87916,225,102.99997,225H248z"/><polygon fill="#185DB7" points="309.70001,287 202.29999,287 256,193.98999 "/></svg> Google Auth <span style="color:var(--text-secondary);font-size:0.7rem;">QR</span>
+        </div>
+        <div class="anim-gravity-4" style="position: absolute; top: 40%; left: 50%; background: var(--bg-color); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); z-index: 2; white-space: nowrap;">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#A020F0"><path d="m6.9487 19.8732-.0074.0133a1.483 1.483 0 0 0-.0013 1.469l.3165.5565c.2639.4638.7563.75 1.2897.75h.0163c1.139 0 1.853-1.2301 1.2883-2.219l-.325-.5697c-.5693-.9974-2.0074-.9974-2.577-.0002m3.4905-6.1074a1.483 1.483 0 0 0-.0013 1.4688l3.7964 6.6769c.2639.4638.756.7503 1.2897.7503h.0156c1.139 0 1.853-1.2301 1.2883-2.219l-3.8118-6.677c-.5693-.9974-2.0077-.9974-2.5768 0m.3275-11.692L.1972 20.4648c-.5618.9775.1438 2.1969 1.2713 2.1969a1.467 1.467 0 0 0 1.2734-.7393l7.9513-13.9285c.5632-.9867 1.9861-.9855 2.548.0026l7.9175 13.9239a1.466 1.466 0 0 0 1.2746.7416h.0982c1.1255 0 1.8313-1.2152 1.2736-2.193L13.3116 2.0776c-.5616-.9844-1.98-.9867-2.5448-.0039"/></svg> Aegis <span style="color:var(--text-secondary);font-size:0.7rem;">.json</span>
+        </div>
+        <div class="anim-gravity-5" style="position: absolute; top: 40%; left: 50%; background: var(--bg-color); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-primary); z-index: 2; white-space: nowrap;">
+            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 98 121"><path fill="#EC1C24" d="M80.695 100.544 53.101 119.38a6.46 6.46 0 0 1-7.249.034l-28.246-18.902C6.612 93.157 0 80.698 0 67.348V21.571c0-6 3.98-11.252 9.7-12.799L35.533 1.79a51.6 51.6 0 0 1 26.934 0L88.3 8.772c5.72 1.547 9.7 6.797 9.7 12.8v46.01c0 13.222-6.487 25.577-17.305 32.963z"></path><path fill="#fff" d="M71.868 27.025H26.135c-3.608 0-6.533 2.953-6.533 6.595s2.925 6.595 6.533 6.595h45.733c3.609 0 6.534-2.953 6.534-6.595s-2.925-6.595-6.534-6.595M42.47 46.81H26.134c-3.608 0-6.533 2.953-6.533 6.595S22.527 60 26.135 60h16.334c3.608 0 6.533-2.953 6.533-6.595s-2.925-6.595-6.533-6.595M31.166 74.163l-1.569-.915 1.569-.915a1.73 1.73 0 0 0 .624-2.353 1.697 1.697 0 0 0-2.331-.63l-1.569.915v-1.947c0-.951-.764-1.721-1.705-1.721s-1.706.771-1.706 1.721v1.947l-1.67-.973a1.7 1.7 0 0 0-2.332.63 1.733 1.733 0 0 0 .624 2.353l1.67.973-1.67.974a1.73 1.73 0 0 0-.624 2.353 1.7 1.7 0 0 0 1.48.862c.288 0 .582-.075.851-.232l1.671-.973v1.828c0 .952.765 1.722 1.706 1.722.94 0 1.705-.772 1.705-1.722v-1.828l1.569.915a1.7 1.7 0 0 0 2.331-.63 1.733 1.733 0 0 0-.624-2.354"></path></svg> 2FAS <span style="color:var(--text-secondary);font-size:0.7rem;">.2fas</span>
+        </div>
+
+        <!-- Center Engine / Black Hole -->
+        <div style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; border-radius: 50%; background: var(--bg-color); border: 2px dashed var(--border); display: flex; align-items: center; justify-content: center; z-index: 1;" class="anim-spin-slow">
+            <!-- NodeAuth icon inner -->
+            <div class="anim-pulse-glow" style="width: 70px; height: 70px; border-radius: 18px; background: var(--accent); display: flex; align-items: center; justify-content: center; animation-direction: reverse;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+        </div>
+        
+        <!-- Parser Terminal Status -->
+        <div style="background: var(--bg-color); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; width: 100%; text-align: left; position: relative; z-index: 3; box-shadow: 0 -10px 20px rgba(0,0,0,0.04);">
+            <div style="font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px;">
+                <div class="anim-term-line1">> Parsing 24 accounts... <span style="color:#10b981;">OK</span></div>
+                <div class="anim-term-line2">> Deduplicating keys... <span style="color:#10b981;">OK</span></div>
+                <div class="anim-term-line3" style="color: var(--text-primary); font-weight: 600;">> Successfully imported 22 tokens!</div>
+            </div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<style>
+.anim-gravity-1 { animation: grav1 6s infinite; }
+@keyframes grav1 { 0%{transform: translate(calc(-50% - 150px), calc(-50% - 110px)) scale(0.9);opacity:0;} 10%{transform: translate(calc(-50% - 140px), calc(-50% - 100px)) scale(1);opacity:1;} 80%{transform: translate(-50%, -50%) scale(0.4);opacity:0.6;} 90%,100%{transform: translate(-50%, -50%) scale(0);opacity:0;} }
+
+.anim-gravity-2 { animation: grav2 6s infinite; animation-delay: 1.2s; opacity: 0;}
+@keyframes grav2 { 0%{transform: translate(calc(-50% + 150px), calc(-50% - 120px)) scale(0.9);opacity:0;} 10%{transform: translate(calc(-50% + 140px), calc(-50% - 110px)) scale(1);opacity:1;} 80%{transform: translate(-50%, -50%) scale(0.4);opacity:0.6;} 90%,100%{transform: translate(-50%, -50%) scale(0);opacity:0;} }
+
+.anim-gravity-3 { animation: grav3 6s infinite; animation-delay: 2.4s; opacity: 0;}
+@keyframes grav3 { 0%{transform: translate(calc(-50% - 180px), calc(-50% - 20px)) scale(0.9);opacity:0;} 10%{transform: translate(calc(-50% - 160px), calc(-50% - 10px)) scale(1);opacity:1;} 80%{transform: translate(-50%, -50%) scale(0.4);opacity:0.6;} 90%,100%{transform: translate(-50%, -50%) scale(0);opacity:0;} }
+
+.anim-gravity-4 { animation: grav4 6s infinite; animation-delay: 3.6s; opacity: 0;}
+@keyframes grav4 { 0%{transform: translate(calc(-50% + 170px), calc(-50% + 20px)) scale(0.9);opacity:0;} 10%{transform: translate(calc(-50% + 150px), calc(-50% + 10px)) scale(1);opacity:1;} 80%{transform: translate(-50%, -50%) scale(0.4);opacity:0.6;} 90%,100%{transform: translate(-50%, -50%) scale(0);opacity:0;} }
+
+.anim-gravity-5 { animation: grav5 6s infinite; animation-delay: 4.8s; opacity: 0;}
+@keyframes grav5 { 0%{transform: translate(calc(-50% - 100px), calc(-50% + 90px)) scale(0.9);opacity:0;} 10%{transform: translate(calc(-50% - 80px), calc(-50% + 80px)) scale(1);opacity:1;} 80%{transform: translate(-50%, -50%) scale(0.4);opacity:0.6;} 90%,100%{transform: translate(-50%, -50%) scale(0);opacity:0;} }
+
+@keyframes spinSlow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.anim-spin-slow {
+    animation: spinSlow 20s linear infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(0,113,227,0.4); transform: rotate(0deg); }
+    50% { box-shadow: 0 0 40px rgba(0,113,227,0.8); transform: rotate(-180deg); }
+}
+.anim-pulse-glow {
+    animation: pulseGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes termL1 { 0%, 5% {opacity:0;} 10%, 100% {opacity:1;} }
+@keyframes termL2 { 0%, 30% {opacity:0;} 35%, 100% {opacity:1;} }
+@keyframes termL3 { 0%, 60% {opacity:0;} 65%, 100% {opacity:1;} }
+.anim-term-line1 { animation: termL1 5s infinite; }
+.anim-term-line2 { animation: termL2 5s infinite; }
+.anim-term-line3 { animation: termL3 5s infinite; }
+</style>

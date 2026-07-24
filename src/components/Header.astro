@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 ---
 <nav>
     <div class="nav-content">
-        <a href={lang === 'en' ? '/en/' : '/'} class="logo">
+        <a href={lang === 'cn' ? '/cn/' : '/'} class="logo">
         <img src="/logo.svg" alt="NodeAuth Logo" width="28" height="28" />
         NodeAuth
     </a>
@@ -50,8 +50,8 @@ const t = useTranslations(lang);
                 </svg>
             </button>
             <div class="lang-dropdown">
-                <a href="/" class={lang === 'zh' ? 'active' : ''}>简体中文</a>
-                <a href="/en/" class={lang === 'en' ? 'active' : ''}>English</a>
+                <a href="/" class={lang === 'en' ? 'active' : ''}>English</a>
+                <a href="/cn/" class={lang === 'cn' ? 'active' : ''}>简体中文</a>
             </div>
         </div>
 
