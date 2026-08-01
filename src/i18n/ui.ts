@@ -14,7 +14,6 @@ export const ui = {
     'nav.docs': '部署文档',
     'nav.extension': '浏览器插件',
     'nav.pricing': '终身授权',
-    'nav.buy': '立即购买',
 
     'hero.tag': '专属福利！结算输入 EARLYBIRD20 立享 8 折优惠',
     'hero.title': '你的 2FA 验证码，<br>现在由你 <span class="text-gradient">真正做主</span>。',
@@ -28,6 +27,12 @@ export const ui = {
     'ext.subtitle': 'NodeAuth Extension',
     'ext.title': '桌面端的<br>完美搭档。',
     'ext.desc': '告别在手机和电脑间来回看验证码的繁琐。基于零知识加密技术，插件能安全地自动为你填充验证码，让每一次登录都丝滑流畅。',
+    'ext.mock.search': '搜索账号...',
+    'ext.mock.all': '全部 (384)',
+    'ext.mock.uncategorized': '未分类 (352)',
+    'ext.mock.copied': '已复制',
+    'ext.mock.accounts': '账号',
+    'ext.mock.settings': '设置',
 
     'feat.export.subtitle': '数据主权 (Data Sovereignty)',
     'feat.export.title': '自由掌控，<br>灵活导出。',
@@ -79,7 +84,7 @@ export const ui = {
 
     'footer.desc': '一个十分安全的 2FA 服务管理工具。<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
     'footer.rights': '&copy; 2026 NodeAuth. All rights reserved.',
-    'footer.tools': '辅助工具 (Tools)',
+
 
     'footer.col1.title': '产品',
     'footer.col1.l1': '授权中心',
@@ -105,7 +110,7 @@ export const ui = {
     'nav.docs': 'Documentation',
     'nav.extension': 'Extension',
     'nav.pricing': 'Lifetime License',
-    'nav.buy': 'Buy Now',
+
 
     'hero.tag': 'Special Offer! Use EARLYBIRD20 for 20% off',
     'hero.title': 'Your 2FA Codes,<br>Now <span class="text-gradient">Truly Yours</span>.',
@@ -119,6 +124,12 @@ export const ui = {
     'ext.subtitle': 'NodeAuth Extension',
     'ext.title': 'The Perfect<br/>Desktop Companion.',
     'ext.desc': 'Say goodbye to looking back and forth between your phone and computer. Built with zero-knowledge encryption, the extension securely autofills your 2FA codes, making every login seamless.',
+    'ext.mock.search': 'Search accounts...',
+    'ext.mock.all': 'All (384)',
+    'ext.mock.uncategorized': 'Default (352)',
+    'ext.mock.copied': 'Copied',
+    'ext.mock.accounts': 'Accounts',
+    'ext.mock.settings': 'Settings',
 
     'feat.export.subtitle': 'Data Sovereignty',
     'feat.export.title': 'Freedom to Control,<br/>Flexible Export.',
@@ -170,7 +181,7 @@ export const ui = {
 
     'footer.desc': 'A Secure 2FA Management Tool.<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
     'footer.rights': '&copy; 2026 NodeAuth. All rights reserved.',
-    'footer.tools': 'Tools',
+
 
     'footer.col1.title': 'Product',
     'footer.col1.l1': 'License Center',
@@ -179,7 +190,7 @@ export const ui = {
     'footer.col2.title': 'Resources',
     'footer.col2.l1': 'Online Demo',
     'footer.col2.l2': 'Wiki Docs',
-    'footer.col2.l3': 'Tools',
+    'footer.col2.l3': 'Deployment Tools',
 
     'footer.col3.title': 'Legal',
     'footer.col3.l1': 'Terms of Service',

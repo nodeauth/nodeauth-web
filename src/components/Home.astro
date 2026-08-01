@@ -49,7 +49,7 @@ const t = useTranslations(lang);
     <!-- Custom visual via Slot: Extension Mockup -->
     <div style="width: 100%; max-width: 320px; background: #f8fafc; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--border); overflow: hidden; margin: 0 auto; text-align: left; transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: transform 0.4s ease;" class="ext-mockup">
         <!-- Top Header -->
-        <div style="background: #11265f; color: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="background: #1e2f75; color: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.05rem;">
                 <img src="/logo.svg" alt="NodeAuth" width="20" height="20" style="filter: brightness(0) invert(1);" />
                 NodeAuth
@@ -63,14 +63,14 @@ const t = useTranslations(lang);
         <div style="padding: 12px 16px 4px; background: white;">
             <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 6px 12px; display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 0.85rem;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                搜索账号...
+                {t('ext.mock.search')}
             </div>
         </div>
         <!-- Tabs -->
-        <div style="padding: 8px 16px 12px; background: white; display: flex; gap: 8px; font-size: 0.75rem;">
-            <div style="background: #11265f; color: white; padding: 4px 12px; border-radius: 12px; font-weight: 500;">全部 (384)</div>
-            <div style="background: #f1f5f9; color: #64748b; padding: 4px 12px; border-radius: 12px;">未分类 (352)</div>
-            <div style="background: #f1f5f9; color: #64748b; padding: 4px 12px; border-radius: 12px;">Scan (32)</div>
+        <div style="padding: 8px 16px 12px; background: white; display: flex; gap: 6px; font-size: 0.75rem; white-space: nowrap; overflow-x: auto;">
+            <div style="background: #3451B2; color: white; padding: 4px 10px; border-radius: 12px; font-weight: 500; white-space: nowrap; flex-shrink: 0;">{t('ext.mock.all')}</div>
+            <div style="background: #f1f5f9; color: #64748b; padding: 4px 10px; border-radius: 12px; white-space: nowrap; flex-shrink: 0;">{t('ext.mock.uncategorized')}</div>
+            <div style="background: #f1f5f9; color: #64748b; padding: 4px 10px; border-radius: 12px; white-space: nowrap; flex-shrink: 0;">Scan (32)</div>
         </div>
         <!-- Account List -->
         <div style="padding: 0 12px 12px; display: flex; flex-direction: column; gap: 10px; background: #f8fafc; margin-top: 4px;">
@@ -84,15 +84,15 @@ const t = useTranslations(lang);
                     <div style="font-size: 0.75rem; color: #94a3b8; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">alice@gmail.com</div>
                 </div>
                 <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
-                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">842 901</div>
-                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #3451B2; letter-spacing: 1px;">842 901</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #3451B2;">
                         17
                     </div>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
                 </div>
                 <!-- Animated Copied Button -->
-                <div class="anim-copied-btn" style="position: absolute; right: 12px; top: 12px; bottom: 12px; width: 120px; background: #2d436a; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 500; opacity: 0; pointer-events: none;">
-                    已复制
+                <div class="anim-copied-btn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); height: 32px; width: 144px; background: #3451B2; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 500; opacity: 0; pointer-events: none; box-shadow: 0 2px 8px rgba(52, 81, 178, 0.25);">
+                    {t('ext.mock.copied')}
                 </div>
                 <!-- Cursor -->
                 <svg class="anim-cursor" style="position: absolute; right: 20px; bottom: -15px; z-index: 10;" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.24c.45 0 .67-.54.35-.85L6.35 3.56a.5.5 0 0 0-.85.35z" fill="white" stroke="black" stroke-width="1.5"/></svg>
@@ -108,8 +108,8 @@ const t = useTranslations(lang);
                     <div style="font-size: 0.75rem; color: #94a3b8;">alice@github.com</div>
                 </div>
                 <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
-                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">516 994</div>
-                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #3451B2; letter-spacing: 1px;">516 994</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #3451B2;">
                         17
                     </div>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
@@ -126,8 +126,8 @@ const t = useTranslations(lang);
                     <div style="font-size: 0.75rem; color: #94a3b8;">alice@x.com</div>
                 </div>
                 <div style="text-align: right; display: flex; align-items: center; gap: 8px;">
-                    <div style="font-size: 1.15rem; font-weight: 700; color: #11265f; letter-spacing: 1px;">705 599</div>
-                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #11265f;">
+                    <div style="font-size: 1.15rem; font-weight: 700; color: #3451B2; letter-spacing: 1px;">705 599</div>
+                    <div style="width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: #94a3b8; font-weight: 600; border-top-color: #3451B2;">
                         17
                     </div>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
@@ -137,13 +137,13 @@ const t = useTranslations(lang);
         
         <!-- Bottom Nav -->
         <div style="border-top: 1px solid #e2e8f0; display: flex; padding: 8px 0; background: white;">
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; color: #11265f; gap: 4px;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; color: #3451B2; gap: 4px;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
-                <span style="font-size: 0.7rem; font-weight: 600;">账号</span>
+                <span style="font-size: 0.7rem; font-weight: 600;">{t('ext.mock.accounts')}</span>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; color: #94a3b8; gap: 4px;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                <span style="font-size: 0.7rem;">设置</span>
+                <span style="font-size: 0.7rem;">{t('ext.mock.settings')}</span>
             </div>
         </div>
     </div>
