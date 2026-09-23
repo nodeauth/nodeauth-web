@@ -5,33 +5,44 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Privacy Policy | NodeAuth" description="NodeAuth Privacy Policy - Zero-Knowledge and Local-First">
     <div class="legal-container">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: July 2026</p>
+        <p class="last-updated">Last Updated: September 2026</p>
 
         <div class="legal-content">
-            <p>NodeAuth is committed to protecting your privacy and data security. We strictly adhere to the principles of <strong>Zero-Knowledge</strong> and <strong>Local-First</strong>.</p>
+            <p>NodeAuth is committed to protecting your privacy and data security. We strictly adhere to the principles of <strong>Zero-Knowledge</strong> and <strong>Local-First</strong>. We do not collect, store, or transmit any personally identifiable information (PII) beyond what is strictly necessary for software licensing.</p>
 
-            <h3>1. Information Collection & Processing</h3>
-            <p><strong>Information We DO NOT Collect:</strong> We do not collect, store, or transmit any personally identifiable information (PII). We do not use any analytics, tracking pixels, or third-party monitoring tools. Your master keys, TOTP seeds, and vault data are never sent to our servers.</p>
-            <p><strong>License Center & Payments:</strong> When you purchase a NodeAuth license, we collect only essential information required for order fulfillment and fraud prevention, such as your email address. All payments are securely processed through our authorized payment gateways (e.g., Stripe). We do not store your full credit card or sensitive financial information on our servers.</p>
-
-            <h3>2. Local Data & Permissions (Browser Extension)</h3>
-            <p><strong>Local Processing:</strong> Your security data is encrypted using AES-GCM and stored in the extension's local storage. Sensitive keys used for handshakes are kept only in the browser's volatile memory and are destroyed when the session is closed.</p>
-            <p><strong>Permission Justification:</strong></p>
+            <h3>Part 1: Mobile App (iOS & Android)</h3>
+            <p><strong>Local Processing & Storage:</strong> Your 2FA secrets and vault data are encrypted using AES-256 and stored exclusively on your device's local storage. We have zero access to your master keys or vault contents.</p>
+            <p><strong>Device Permissions:</strong></p>
             <ul>
-                <li><code>storage</code>: To save your encrypted vault locally.</li>
-                <li><code>scripting</code> & <code>activeTab</code>: To facilitate secure handshakes with your authorized NodeAuth instance and provide auto-fill services.</li>
-                <li><code>alarms</code>: To implement the "Auto-Lock" security feature.</li>
+                <li><strong>Camera & Photos:</strong> Requested solely for scanning or importing QR codes locally on your device. No images are ever uploaded to our servers.</li>
+                <li><strong>Biometrics (Face ID/Touch ID):</strong> Used strictly for local app unlocking via your device's Secure Enclave. We do not access or store your biometric data.</li>
+                <li><strong>Local Network:</strong> Requested exclusively to allow the App to sync directly with your self-hosted custom server (BYOS) on your local Wi-Fi or LAN. We do not scan your network for analytics or transmit this data to the internet.</li>
             </ul>
+            <p><strong>Cloud Sync:</strong> If you choose to sync your data via native cloud APIs (e.g., Apple iCloud, Google Drive) or a custom BYOS server, your vault is fully encrypted <strong>before</strong> it leaves your device. We cannot read your synced data.</p>
+            <p><strong>License Validation:</strong> If you activate a PRO license, the App verifies an anonymous, vendor-specific identifier against our license server to manage your device limit. No personally identifiable information is sent during this process.</p>
 
-            <h3>3. Third-Party Services</h3>
+            <h3>Part 2: Browser Extension</h3>
+            <p><strong>Zero-Knowledge Memory Architecture:</strong> Your vault data is encrypted using AES-GCM and stored locally. For maximum security, the master decryption key is generated dynamically and stored exclusively in the browser's volatile memory (Session). It is never written to disk and is immediately destroyed when the browser closes or the auto-lock timer expires.</p>
+            <p><strong>Extension Permission Justification:</strong></p>
+            <ul>
+                <li><code>storage</code>: To save your encrypted vault and extension settings locally.</li>
+                <li><code>tabs</code> (Screen Capture): Required solely for the "Scan QR Code" feature. The extension captures the visible tab to locally parse QR codes using WebAssembly/JS. Image data is processed entirely in memory, is instantly discarded, and is <strong>never</strong> transmitted over the network or uploaded to any server.</li>
+                <li><code>scripting</code> & <code>Host Permissions (&lt;all_urls&gt;)</code>: When "Global Auto-Fill" is enabled, these permissions are used to securely inject a DOM observer into visited pages to detect TOTP input fields. We perform pattern matching strictly on your local device. We <strong>do not</strong> track, log, or transmit your browsing history, page content, or keystrokes. Host permissions are also used to establish direct, end-to-end encrypted connections to your chosen custom S3 or WebDAV personal cloud, ensuring no intermediary servers are involved.</li>
+                <li><code>identity</code>: Used exclusively to facilitate secure, local OAuth 2.0 authentication when you choose to sync your vault with third-party personal clouds (e.g., Google Drive, OneDrive). We only request access to a sandboxed app-specific folder and do not access your other personal files.</li>
+                <li><code>alarms</code> & <code>notifications</code>: To implement the background auto-lock timer and deliver local sync status alerts.</li>
+            </ul>
+            <p><strong>Google API Limited Use Disclosure:</strong> NodeAuth's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+            <p><strong>License Validation:</strong> If you activate a PRO license, the extension verifies an anonymous, browser-generated device identifier and device name against our license server to manage your concurrent device limits. No personal browsing history or vault data is sent during this process.</p>
+            <p><strong>Optional Service Icons:</strong> If you explicitly enable the "Icons" feature in settings, the extension will fetch favicons from public services. This means your account domain names will be shared with these service providers. This feature is disabled by default.</p>
+
+            <h3>Part 3: License Center & Website</h3>
+            <p><strong>Payments & Ordering:</strong> When you purchase a NodeAuth license on our website, we collect only essential information required for order fulfillment and fraud prevention, such as your email address. All payments are securely processed through authorized payment gateways (such as Stripe). We do not store your full credit card or sensitive financial information on our servers. The collection and processing of your payment data by these gateways are governed by their respective privacy policies (e.g., <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe Privacy Policy</a>).</p>
             <p><strong>Abuse Prevention:</strong> We use Cloudflare Turnstile to prevent automated abuse during checkout. This service may collect basic telemetry to verify human interaction in accordance with Cloudflare's privacy policy.</p>
-            <p><strong>Optional Service Icons:</strong> If you explicitly enable the "Icons" feature in settings, the extension will fetch favicons from public services (such as Google or Bitwarden). This means your account domain names will be shared with these service providers. <strong>This feature is disabled by default</strong> to ensure your account list remains completely invisible to third parties.</p>
 
-            <h3>4. Data Retention & Sharing</h3>
-            <p>Except for the optional features mentioned above that you choose to enable, we do not sell, trade, or share your data with any third parties. We retain your email address solely for the purpose of license delivery and support. You may request deletion of your email record at any time by contacting our support team.</p>
-
-            <h3>5. Contact Us</h3>
-            <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us at: <a href="mailto:support@nodeauth.io">support@nodeauth.io</a></p>
+            <h3>Part 4: Data Retention, Deletion & Contact</h3>
+            <p><strong>Data Retention:</strong> Except for the optional features mentioned above that you choose to enable, we do not sell, trade, or share your data with any third parties. We retain your email address solely for the purpose of license delivery and support.</p>
+            <p><strong>Data Deletion:</strong> Since NodeAuth operates without user accounts, you maintain absolute control over your data. You can delete all your data permanently at any time by simply uninstalling the application and removing any synced cloud folders.</p>
+            <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@nodeauth.io">support@nodeauth.io</a></p>
         </div>
     </div>
 </Layout>
