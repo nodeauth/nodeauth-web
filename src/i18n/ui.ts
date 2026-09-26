@@ -61,7 +61,7 @@ export const ui = {
     'price.subtitle': 'NodeAuth License',
     'price.title': '投资你的绝对安全。',
     'price.desc': '一次买断，获取长久的自动化更新与专属支持。<br>今天，就把数据主权拿回自己手中。',
-    'price.plan': '终身授权版',
+    'price.plan': '终身授权',
     'price.price': '$9.99',
     'price.period': '买断制 / 终身有效',
     'price.f1': '无限制的设备同时在线同步',
