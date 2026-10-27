@@ -13,9 +13,10 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "astro": "7.3.4"
+    "astro": "7.4.2"
   },
-  "allowScripts": {
-    "esbuild@0.28.1": true
-  }
+  "overrides": {
+    "sharp": "0.35.5"
+  },
+  "allowScripts": {}
 }
