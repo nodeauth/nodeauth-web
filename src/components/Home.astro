@@ -1,6 +1,7 @@
 ---
 // src/components/Home.astro
 import Hero from './Hero.astro';
+import FeatureMobileApp from './FeatureMobileApp.astro';
 import FeatureBlock from './FeatureBlock.astro';
 import License from './License.astro';
 import FAQ from './FAQ.astro';
@@ -16,6 +17,9 @@ const t = useTranslations(lang);
 ---
 
 <Hero />
+
+<!-- Mobile App Feature Block -->
+<FeatureMobileApp />
 
 <!-- Extension Feature Block -->
 <FeatureBlock

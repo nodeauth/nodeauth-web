@@ -1,0 +1,745 @@
+---
+// src/components/FeatureMobileApp.astro
+import FeatureBlock from './FeatureBlock.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<!-- Mobile App Feature Block -->
+<FeatureBlock
+    id="mobile-app"
+    subtitle={t('app.subtitle')}
+    title={t('app.title')}
+    description={t('app.desc')}
+>
+    <div slot="actions" style="margin-top: 1.8rem;">
+        <!-- Feature Highlights Badges -->
+        <div class="mobile-badges">
+            <span class="pill-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                {t('app.badge.offline')}
+            </span>
+            <span class="pill-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                {t('app.badge.autofill')}
+            </span>
+            <span class="pill-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M10 13a2 2 0 0 0 4 0"/></svg>
+                {t('app.badge.biometric')}
+            </span>
+        </div>
+
+        <!-- Download Buttons -->
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/cn/app/nodeauth/id6820337516" class="btn-store btn-apple" target="_blank" rel="noopener noreferrer" aria-label="Download on Apple App Store">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.72-.93 2.74 1.01.08 2.02-.49 2.64-1.24z"/>
+                </svg>
+                <span>App Store</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.nextmatrix.nodeauth" class="btn-store btn-google" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                <svg width="18" height="18" viewBox="-1 0 24 24" fill="currentColor">
+                    <path d="m3.751.61 13.124 7.546-2.813 2.813zM1.032 0l12.047 12L1.033 24a1.72 1.72 0 0 1-1.032-1.643v.003V1.641L0 1.576C0 .875.42.272 1.022.005zm19.922 10.594c.414.307.679.795.679 1.344l-.001.065V12a1.56 1.56 0 0 1-.629 1.403l-.004.003-2.813 1.593L15.14 12l3.047-3.047zM3.751 23.39l10.312-10.359 2.813 2.813z"/>
+                </svg>
+                <span>Google Play</span>
+            </a>
+            <a href="https://github.com/nodeauth/nodeauth-app-builder/releases" class="btn-store btn-apk" target="_blank" rel="noopener noreferrer" aria-label="Download Android APK on GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.0837 12 8.0837s-3.5902.3279-5.1368.866L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
+                </svg>
+                <span>Android APK</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Phone Hardware Mockup -->
+    <div class="phone-frame">
+        <div class="phone-dynamic-island"></div>
+        <div class="phone-screen">
+            <!-- 1. Real Status Bar (时间 + 信号 / Wi-Fi / 电池) -->
+            <div class="phone-status-bar">
+                <span class="status-time">16:47</span>
+                <div class="status-icons">
+                    <!-- 蜂窝信号 4格 -->
+                    <svg class="status-icon" width="14" height="10" viewBox="0 0 14 10" fill="currentColor">
+                        <rect x="0" y="7" width="2" height="3" rx="0.5"/>
+                        <rect x="3.5" y="5" width="2" height="5" rx="0.5"/>
+                        <rect x="7" y="3" width="2" height="7" rx="0.5"/>
+                        <rect x="10.5" y="0.5" width="2" height="9.5" rx="0.5"/>
+                    </svg>
+                    <!-- Wi-Fi 图标 -->
+                    <svg class="status-icon" width="13" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                        <line x1="12" y1="20" x2="12.01" y2="20"/>
+                    </svg>
+                    <!-- 电池 (含闪电充电标) -->
+                    <svg class="status-icon status-battery" width="20" height="10" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="1" y="1" width="19" height="10" rx="3" fill="currentColor" fill-opacity="0.15"/>
+                        <rect x="2.5" y="2.5" width="12" height="7" rx="1.5" fill="currentColor"/>
+                        <path d="M22 4.5v3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 2. Real App Navbar (品牌盾牌 + NodeAuth + 批量与添加操作) -->
+            <div class="phone-navbar">
+                <div class="navbar-brand">
+                    <img src="/logo.svg" alt="NodeAuth" class="navbar-logo" width="20" height="20" />
+                    <span class="navbar-title">NodeAuth</span>
+                </div>
+                <div class="navbar-actions">
+                    <!-- 多选/管理图标 -->
+                    <button class="nav-btn" type="button" aria-label="Select accounts">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <polyline points="9 11 12 14 22 4"/>
+                        </svg>
+                    </button>
+                    <!-- 新增账户 + -->
+                    <button class="nav-btn nav-btn-primary" type="button" aria-label="Add account">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Real Search Bar -->
+            <div class="phone-search">
+                <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <span class="search-placeholder">Search accounts or services...</span>
+            </div>
+
+            <!-- 4. Category Chips 胶囊分类行 (与图2分类对齐) -->
+            <div class="phone-chips">
+                <span class="chip chip-active">All <span class="chip-badge">384</span></span>
+                <span class="chip">Default <span class="chip-badge">352</span></span>
+                <span class="chip">Scan <span class="chip-badge">32</span></span>
+            </div>
+
+            <!-- Token Cards in App (与图2账号数据、Icon与TOTP码完全一致) -->
+            <div class="app-tokens">
+                <!-- 1. google.com (对齐图2第一项) -->
+                <div class="token-card card-highlight">
+                    <div class="card-header">
+                        <div class="card-brand">
+                            <div class="brand-icon google-bg">
+                                <svg width="15" height="15" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                            </div>
+                            <span class="brand-name">google.com</span>
+                        </div>
+                        <span class="card-category">Default</span>
+                    </div>
+                    <div class="card-account">alice@gmail.com</div>
+                    <div class="card-bottom">
+                        <div class="codes-wrap">
+                            <span class="primary-code">842 901</span>
+                            <span class="secondary-code">244 076</span>
+                        </div>
+                        <div class="timer-ring-wrap">
+                            <svg viewBox="0 0 36 36" class="timer-ring-svg">
+                                <circle cx="18" cy="18" r="15" class="ring-track"/>
+                                <circle cx="18" cy="18" r="15" class="ring-progress ring-green" stroke-dashoffset="41"/>
+                            </svg>
+                            <span class="timer-seconds">17</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. github.com (对齐图2第二项) -->
+                <div class="token-card">
+                    <div class="card-header">
+                        <div class="card-brand">
+                            <div class="brand-icon github-bg">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                            </div>
+                            <span class="brand-name">github.com</span>
+                        </div>
+                        <span class="card-category">Dev</span>
+                    </div>
+                    <div class="card-account">alice@github.com</div>
+                    <div class="card-bottom">
+                        <div class="codes-wrap">
+                            <span class="primary-code">516 994</span>
+                            <span class="secondary-code">108 552</span>
+                        </div>
+                        <div class="timer-ring-wrap">
+                            <svg viewBox="0 0 36 36" class="timer-ring-svg">
+                                <circle cx="18" cy="18" r="15" class="ring-track"/>
+                                <circle cx="18" cy="18" r="15" class="ring-progress ring-green" stroke-dashoffset="41"/>
+                            </svg>
+                            <span class="timer-seconds">17</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. x.com (对齐图2第三项) -->
+                <div class="token-card">
+                    <div class="card-header">
+                        <div class="card-brand">
+                            <div class="brand-icon x-bg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </div>
+                            <span class="brand-name">x.com</span>
+                        </div>
+                        <span class="card-category">Social</span>
+                    </div>
+                    <div class="card-account">alice@x.com</div>
+                    <div class="card-bottom">
+                        <div class="codes-wrap">
+                            <span class="primary-code">705 599</span>
+                            <span class="secondary-code">391 204</span>
+                        </div>
+                        <div class="timer-ring-wrap">
+                            <svg viewBox="0 0 36 36" class="timer-ring-svg">
+                                <circle cx="18" cy="18" r="15" class="ring-track"/>
+                                <circle cx="18" cy="18" r="15" class="ring-progress ring-green" stroke-dashoffset="41"/>
+                            </svg>
+                            <span class="timer-seconds">17</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Real App Bottom TabBar (真机 4 项底部标签栏) -->
+            <div class="phone-tabbar">
+                <div class="tab-item tab-active">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Accounts</span>
+                </div>
+                <div class="tab-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                    </svg>
+                    <span>Data</span>
+                </div>
+                <div class="tab-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Tools</span>
+                </div>
+                <div class="tab-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    <span>Settings</span>
+                </div>
+            </div>
+
+            <!-- Home indicator bar -->
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</FeatureBlock>
+
+<style>
+.mobile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+}
+.pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--text-primary);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.download-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.btn-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--btn-sec-bg, #f4f4f5);
+    color: var(--text-primary, #18181b);
+    border: 1px solid var(--border, #e4e4e7);
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.btn-store:hover {
+    transform: translateY(-2px);
+    background: var(--btn-sec-hover-bg, #e4e4e7);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Phone Frame Mockup (支持深浅双主题机身质感) */
+.phone-frame {
+    width: 100%;
+    max-width: 310px;
+    margin: 0 auto;
+    background: #09090b;
+    border-radius: 44px;
+    padding: 12px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    position: relative;
+    border: 2px solid #27272a;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.4s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.phone-frame:hover {
+    transform: translateY(-6px);
+}
+
+:global([data-theme='light']) .phone-frame,
+:global(html:not([data-theme='dark'])) .phone-frame {
+    background: #e4e4e7;
+    border-color: #d4d4d8;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.06) inset;
+}
+
+:global([data-theme='dark']) .phone-frame {
+    background: #09090b;
+    border-color: #27272a;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.phone-dynamic-island {
+    width: 84px;
+    height: 22px;
+    background: #000;
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Phone Screen (双主题无缝变量架构) */
+.phone-screen {
+    --p-bg: #0d0d10;
+    --p-text: #f4f4f5;
+    --p-text-muted: #71717a;
+    --p-border: rgba(255, 255, 255, 0.08);
+    --p-card-bg: #18181b;
+    --p-card-border: rgba(255, 255, 255, 0.07);
+    --p-card-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    --p-input-bg: rgba(255, 255, 255, 0.06);
+    --p-chip-bg: rgba(255, 255, 255, 0.06);
+    --p-chip-text: #a1a1aa;
+    --p-tabbar-bg: rgba(13, 13, 16, 0.78);
+    --p-indicator: rgba(255, 255, 255, 0.35);
+    --p-ring-track: rgba(255, 255, 255, 0.08);
+    --p-ring-color: #10b981;
+    --p-icon-bg: rgba(255, 255, 255, 0.08);
+
+    background: var(--p-bg);
+    border-radius: 36px;
+    padding: 12px 14px 14px;
+    color: var(--p-text);
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 浅色模式自适应 (Light Mode) */
+:global([data-theme='light']) .phone-screen,
+:global(html:not([data-theme='dark'])) .phone-screen {
+    --p-bg: #f4f4f6;
+    --p-text: #09090b;
+    --p-text-muted: #64748b;
+    --p-border: rgba(0, 0, 0, 0.08);
+    --p-card-bg: #ffffff;
+    --p-card-border: rgba(0, 0, 0, 0.06);
+    --p-card-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    --p-input-bg: #ffffff;
+    --p-chip-bg: #ffffff;
+    --p-chip-text: #64748b;
+    --p-tabbar-bg: rgba(244, 244, 246, 0.88);
+    --p-indicator: rgba(0, 0, 0, 0.25);
+    --p-ring-track: rgba(0, 0, 0, 0.08);
+    --p-ring-color: #10b981;
+    --p-icon-bg: #f8fafc;
+}
+
+/* 深色模式显式保障 (Dark Mode) */
+:global([data-theme='dark']) .phone-screen {
+    --p-bg: #0d0d10;
+    --p-text: #f4f4f5;
+    --p-text-muted: #71717a;
+    --p-border: rgba(255, 255, 255, 0.08);
+    --p-card-bg: #18181b;
+    --p-card-border: rgba(255, 255, 255, 0.07);
+    --p-card-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    --p-input-bg: rgba(255, 255, 255, 0.06);
+    --p-chip-bg: rgba(255, 255, 255, 0.06);
+    --p-chip-text: #a1a1aa;
+    --p-tabbar-bg: rgba(13, 13, 16, 0.78);
+    --p-indicator: rgba(255, 255, 255, 0.35);
+    --p-ring-track: rgba(255, 255, 255, 0.08);
+    --p-ring-color: #10b981;
+    --p-icon-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* 1. Status Bar */
+.phone-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 8px 10px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: inherit;
+    letter-spacing: -0.2px;
+}
+.status-time {
+    font-variant-numeric: tabular-nums;
+}
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+}
+.status-icon {
+    display: block;
+}
+
+/* 2. Navbar */
+.phone-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 4px 10px;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.navbar-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+.navbar-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: inherit;
+}
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: inherit;
+    opacity: 0.85;
+    cursor: pointer;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: opacity 0.2s, background 0.2s;
+}
+.nav-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+}
+.nav-btn-primary {
+    color: #3b82f6;
+    opacity: 1;
+}
+
+/* 3. Search Bar */
+.phone-search {
+    background: var(--p-input-bg);
+    border: 1px solid var(--p-border);
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+.search-icon {
+    color: var(--p-text-muted);
+    flex-shrink: 0;
+}
+.search-placeholder {
+    font-size: 0.78rem;
+    color: var(--p-text-muted);
+    letter-spacing: -0.1px;
+}
+
+/* 4. Category Chips */
+.phone-chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 12px;
+    padding-bottom: 2px;
+}
+.phone-chips::-webkit-scrollbar {
+    display: none;
+}
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background: var(--p-chip-bg);
+    color: var(--p-chip-text);
+    border: 1px solid var(--p-border);
+    transition: all 0.25s ease;
+}
+.chip.chip-active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+.chip-badge {
+    font-size: 0.65rem;
+    opacity: 0.85;
+    font-weight: 600;
+}
+
+.app-tokens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+/* 真机 TOTP 卡片 (双主题动态适配) */
+.token-card {
+    background: var(--p-card-bg);
+    border: 1px solid var(--p-card-border);
+    box-shadow: var(--p-card-shadow);
+    border-radius: 16px;
+    padding: 10px 12px 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.3s ease;
+}
+.token-card.card-highlight {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.brand-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--p-icon-bg);
+    color: var(--p-text);
+    border: 1px solid var(--p-border);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.google-bg,
+.github-bg,
+.x-bg {
+    background: var(--p-icon-bg);
+    color: var(--p-text);
+}
+.brand-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: inherit;
+    letter-spacing: -0.2px;
+}
+.card-category {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: var(--p-chip-bg);
+    color: var(--p-text-muted);
+    border: 1px solid var(--p-border);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-account {
+    font-size: 0.72rem;
+    color: var(--p-text-muted);
+    padding-left: 32px;
+    letter-spacing: -0.1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 32px;
+    margin-top: 2px;
+}
+.codes-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+}
+.primary-code {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: 0.8px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+}
+.secondary-code {
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--p-text-muted);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+}
+
+/* 倒计时圆形指示器与秒数 */
+.timer-ring-wrap {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.timer-ring-svg {
+    width: 28px;
+    height: 28px;
+    transform: rotate(-90deg);
+}
+.ring-track {
+    fill: none;
+    stroke: var(--p-ring-track);
+    stroke-width: 3.2;
+    transition: stroke 0.3s ease;
+}
+.ring-progress {
+    fill: none;
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-dasharray: 94.25;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+.ring-green {
+    stroke: var(--p-ring-color);
+}
+.timer-seconds {
+    position: absolute;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--p-ring-color);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+}
+
+/* 5. Bottom TabBar */
+.phone-tabbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 6px 4px;
+    margin: 14px -14px 0;
+    border-top: 1px solid var(--p-border);
+    background: var(--p-tabbar-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: var(--p-text-muted);
+    transition: color 0.2s, transform 0.2s;
+    cursor: default;
+    user-select: none;
+}
+.tab-item.tab-active {
+    color: #2563eb;
+    font-weight: 600;
+}
+.tab-item svg {
+    flex-shrink: 0;
+}
+
+.home-indicator {
+    width: 96px;
+    height: 4px;
+    background: var(--p-indicator);
+    border-radius: 999px;
+    margin: 8px auto 2px;
+    transition: background 0.3s ease;
+}
+</style>

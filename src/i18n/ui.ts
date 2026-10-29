@@ -12,8 +12,9 @@ export const ui = {
 
     'nav.demo': '在线演示',
     'nav.docs': '部署文档',
+    'nav.app': '移动端 App',
     'nav.extension': '浏览器插件',
-    'nav.pricing': '终身授权',
+    'nav.pricing': '定价方案',
 
     'hero.tag': '专属福利！结算输入 EARLYBIRD20 立享 8 折优惠',
     'hero.title': '你的 2FA 验证码，<br>现在由你 <span class="text-gradient">真正做主</span>。',
@@ -23,6 +24,13 @@ export const ui = {
     'hero.f3': '100% 开源透明',
     'hero.buy': '获取正版授权',
     'hero.demo': '体验在线 Demo',
+
+    'app.subtitle': 'NodeAuth Mobile App',
+    'app.title': '口袋中的<br>安全堡垒。',
+    'app.desc': '专为 iOS 与 Android 打造的纯粹体验。支持 FaceID / 指纹解锁、系统级密码自动填充与端到端加密同步，让双重验证轻若无物。',
+    'app.badge.autofill': '系统级密码填充',
+    'app.badge.biometric': 'FaceID / 指纹解锁',
+    'app.badge.offline': '100% 本地离线安全',
 
     'ext.subtitle': 'NodeAuth Extension',
     'ext.title': '桌面端的<br>完美搭档。',
@@ -51,7 +59,7 @@ export const ui = {
 
     'feat.multi.subtitle': '全平台覆盖 (Cross-platform)',
     'feat.multi.title': '随时随地，<br>多端无缝协同。',
-    'feat.multi.desc': '一次配置，全端打通。无论在手机、平板还是电脑前，NodeAuth 均能提供极致顺滑的原生体验。加密数据在所有授权设备间实时同步，让验证码永远唾手可得。',
+    'feat.multi.desc': '一次配置，全端打通。无论在 iPhone、Android、平板还是电脑前，NodeAuth 均能提供极致顺滑的原生体验。加密数据在所有授权设备间实时同步，让验证码永远唾手可得。',
 
     'wiki.subtitle': 'NodeAuth Wiki',
     'wiki.title': '私有化部署，<br>从未如此简单。',
@@ -60,7 +68,7 @@ export const ui = {
 
     'price.subtitle': 'NodeAuth License',
     'price.title': '投资你的绝对安全。',
-    'price.desc': '一次买断，获取长久的自动化更新与专属支持。<br>今天，就把数据主权拿回自己手中。',
+    'price.desc': '灵活的定价选择，支持月度、年度订阅与终身买断。<br>今天，就把数据主权拿回自己手中。',
     'price.plan': '终身授权',
     'price.price': '$9.99',
     'price.period': '买断制 / 终身有效',
@@ -69,6 +77,30 @@ export const ui = {
     'price.f3': '提供官方专属交流群与持续的售后技术支持',
     'price.f4': '支持微信、信用卡及 USDT 免手续费直付',
     'price.btn': '立即获取授权 ($9.99)',
+
+    'price.tier.monthly.name': '月度订阅',
+    'price.tier.monthly.price': '$1.99',
+    'price.tier.monthly.period': '按月付费 / 随时取消',
+    'price.tier.monthly.btn': '订阅月度方案',
+    'price.tier.monthly.desc': '轻量体验全功能，灵活订阅',
+
+    'price.tier.annual.name': '年度订阅',
+    'price.tier.annual.price': '$5.99',
+    'price.tier.annual.period': '按年付费 / 约 $0.50/月',
+    'price.tier.annual.btn': '订阅年度方案',
+    'price.tier.annual.desc': '高性价比选择，全年无忧同步',
+
+    'price.tier.lifetime.name': '终身授权',
+    'price.tier.lifetime.badge': '官方主推 · 终身买断',
+    'price.tier.lifetime.price': '$9.99',
+    'price.tier.lifetime.period': '一次付费 / 终身有效',
+    'price.tier.lifetime.btn': '获取终身授权 ($9.99)',
+    'price.tier.lifetime.desc': '一次买断，终身享用未来所有更新',
+
+    'price.common.f1': '跨全平台：iOS、Android、浏览器插件及自建服',
+    'price.common.f2': '支持最多 5 台个人设备同时激活同步',
+    'price.common.f3': '端到端零知识加密与云端/本地双重备份',
+    'price.common.f4': '官方专属群组技术支持与持续版本迭代',
     'price.help': '需要新手协助？联系 <a href="https://t.me/NodeAuthBot" target="_blank">@NodeAuthBot</a> 即可获取 1v1 代部署',
 
     'faq.subtitle': 'FAQ',
@@ -79,16 +111,17 @@ export const ui = {
     'faq.a2': '绝对可以。NodeAuth 内置万能数据搬家引擎，目前已支持一键无损导入 Authy, Aegis, Google Authenticator 以及 Bitwarden 等 20+ 款主流应用的导出数据。',
     'faq.q3': '云端托管和 Docker 本地部署哪个更安全？',
     'faq.a3': '两者在架构上都采用了严格的安全标准。Cloudflare Serverless 边缘网络部署能提供全球高可用和防 DDoS 攻击的特性；而 Docker 本地部署则实现了物理网络的彻底隔离，您可以根据自身需求灵活选择。',
-    'faq.q4': '浏览器插件是否会收集或上传我的登录数据？',
-    'faq.a4': '绝对不会。NodeAuth 插件在您的设备本地对数据进行零知识加解密，所有操作均在客户端完成。您的核心凭据只存在于您自己部署的服务中，没有任何第三方（包括我们）能够访问或截获。',
+    'faq.q4': '购买许可后可以在哪些设备上使用？',
+    'faq.a4': '您购买的授权码支持在 iOS、Android 移动客户端、浏览器插件以及自建服务端之间跨平台通用，单份授权支持最多 5 台个人设备同时在线激活使用。',
 
     'footer.desc': '一个十分安全的 2FA 服务管理工具。<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
-    'footer.rights': '&copy; 2026 NodeAuth. All rights reserved.',
+    'footer.rights': '&copy; 2026 NextMatrix. All rights reserved.',
 
 
     'footer.col1.title': '产品',
     'footer.col1.l1': '授权中心',
     'footer.col1.l2': '浏览器插件',
+    'footer.col1.l3': '移动端应用',
 
     'footer.col2.title': '资源',
     'footer.col2.l1': '在线演示',
@@ -108,8 +141,9 @@ export const ui = {
     'site.desc': 'High-security, Lightweight 2FA/TOTP management tool supporting Cloudflare Serverless and Docker on-premise deployment.',
     'nav.demo': 'Online Demo',
     'nav.docs': 'Documentation',
+    'nav.app': 'Mobile App',
     'nav.extension': 'Extension',
-    'nav.pricing': 'Lifetime License',
+    'nav.pricing': 'Pricing',
 
 
     'hero.tag': 'Special Offer! Use EARLYBIRD20 for 20% off',
@@ -120,6 +154,13 @@ export const ui = {
     'hero.f3': '100% open source & transparent',
     'hero.buy': 'Get License',
     'hero.demo': 'Try Online Demo',
+
+    'app.subtitle': 'NodeAuth Mobile App',
+    'app.title': 'Your Security Fortress<br/>in Your Pocket.',
+    'app.desc': 'A bespoke mobile experience crafted for iOS and Android. Featuring FaceID / fingerprint biometric unlock, system-level autofill, and end-to-end encrypted sync.',
+    'app.badge.autofill': 'System Autofill Provider',
+    'app.badge.biometric': 'FaceID & Biometric Lock',
+    'app.badge.offline': '100% Offline Vault',
 
     'ext.subtitle': 'NodeAuth Extension',
     'ext.title': 'The Perfect<br/>Desktop Companion.',
@@ -148,7 +189,7 @@ export const ui = {
 
     'feat.multi.subtitle': 'Cross-platform',
     'feat.multi.title': 'Seamless Sync,<br/>Anywhere, Anytime.',
-    'feat.multi.desc': 'Configure once, sync everywhere. Whether on a phone, tablet, or desktop, NodeAuth delivers a buttery-smooth native experience. Encrypted data syncs in real-time across all authorized devices.',
+    'feat.multi.desc': 'Configure once, sync everywhere. Whether on iPhone, Android, tablet, or desktop, NodeAuth delivers a buttery-smooth native experience. Encrypted data syncs in real-time across all authorized devices.',
 
     'wiki.subtitle': 'NodeAuth Wiki',
     'wiki.title': 'Self-Hosting,<br/>Simpler Than Ever.',
@@ -157,7 +198,7 @@ export const ui = {
 
     'price.subtitle': 'NodeAuth License',
     'price.title': 'Invest in Absolute Security.',
-    'price.desc': 'Pay once, get long-term automated updates and exclusive support.<br/>Take back your data sovereignty today.',
+    'price.desc': 'Flexible pricing options with monthly, annual subscriptions and lifetime license.<br/>Take back your data sovereignty today.',
     'price.plan': 'Lifetime License',
     'price.price': '$9.99',
     'price.period': 'One-time payment / Lifetime valid',
@@ -166,6 +207,30 @@ export const ui = {
     'price.f3': 'Official exclusive group & continuous after-sales technical support',
     'price.f4': 'Zero-fee payments via Card, Crypto & WeChat',
     'price.btn': 'Get License ($9.99)',
+
+    'price.tier.monthly.name': 'Monthly Plan',
+    'price.tier.monthly.price': '$1.99',
+    'price.tier.monthly.period': 'Billed monthly / Cancel anytime',
+    'price.tier.monthly.btn': 'Subscribe Monthly',
+    'price.tier.monthly.desc': 'Full features, flexible monthly billing',
+
+    'price.tier.annual.name': 'Annual Plan',
+    'price.tier.annual.price': '$5.99',
+    'price.tier.annual.period': 'Billed annually / ~$0.50/mo',
+    'price.tier.annual.btn': 'Subscribe Annual',
+    'price.tier.annual.desc': 'Great value, seamless year-round sync',
+
+    'price.tier.lifetime.name': 'Lifetime License',
+    'price.tier.lifetime.badge': 'Most Popular · Lifetime',
+    'price.tier.lifetime.price': '$9.99',
+    'price.tier.lifetime.period': 'One-time payment / Lifetime valid',
+    'price.tier.lifetime.btn': 'Get Lifetime License ($9.99)',
+    'price.tier.lifetime.desc': 'Pay once, enjoy lifetime updates forever',
+
+    'price.common.f1': 'Cross-platform: iOS, Android, Extension & BYOS',
+    'price.common.f2': 'Up to 5 personal devices concurrent activation',
+    'price.common.f3': 'End-to-end zero-knowledge encryption & backups',
+    'price.common.f4': 'Dedicated community support & future updates',
     'price.help': 'Need deployment assistance? Contact <a href="https://t.me/NodeAuthBot" target="_blank">@NodeAuthBot</a> for 1v1 help',
 
     'faq.subtitle': 'FAQ',
@@ -176,16 +241,17 @@ export const ui = {
     'faq.a2': 'Absolutely. NodeAuth has a powerful built-in migration engine that supports one-click lossless imports from over 20 mainstream apps like Authy, Aegis, Google Authenticator, and Bitwarden.',
     'faq.q3': 'Which is more secure: Cloudflare Serverless or Docker local deployment?',
     'faq.a3': 'Both adopt strict security standards in their architectures. Cloudflare Serverless edge deployment provides global high availability and DDoS protection; while Docker local deployment achieves complete physical network isolation. You can choose flexibly based on your needs.',
-    'faq.q4': 'Will the browser extension collect or upload my login data?',
-    'faq.a4': 'Absolutely not. The NodeAuth extension performs zero-knowledge encryption and decryption of your data locally. All operations are completed on the client side. Your core credentials only exist in your self-hosted service, and no third party (including us) can access or intercept them.',
+    'faq.q4': 'Which platforms can I use the license on?',
+    'faq.a4': 'The license key is valid across iOS, Android, browser extensions, and self-hosted instances. A single license can be activated on up to 5 personal devices simultaneously.',
 
     'footer.desc': 'A Secure 2FA Management Tool.<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
-    'footer.rights': '&copy; 2026 NodeAuth. All rights reserved.',
+    'footer.rights': '&copy; 2026 NextMatrix. All rights reserved.',
 
 
     'footer.col1.title': 'Product',
     'footer.col1.l1': 'License Center',
     'footer.col1.l2': 'Browser Extension',
+    'footer.col1.l3': 'Mobile App',
 
     'footer.col2.title': 'Resources',
     'footer.col2.l1': 'Online Demo',
