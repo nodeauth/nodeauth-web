@@ -114,8 +114,8 @@ export const ui = {
     'faq.q4': '购买许可后可以在哪些设备上使用？',
     'faq.a4': '您购买的授权码支持在 iOS、Android 移动客户端、浏览器插件以及自建服务端之间跨平台通用，单份授权支持最多 5 台个人设备同时在线激活使用。',
 
-    'footer.desc': '一个十分安全的 2FA 服务管理工具。<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
-    'footer.rights': '&copy; 2026 NextMatrix. All rights reserved.',
+    'footer.desc': '由 NextMatrix LLC 研发并运营的安全 2FA 服务管理工具。<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
+    'footer.rights': '&copy; 2026 NextMatrix LLC. All rights reserved.',
 
 
     'footer.col1.title': '产品',
@@ -244,8 +244,8 @@ export const ui = {
     'faq.q4': 'Which platforms can I use the license on?',
     'faq.a4': 'The license key is valid across iOS, Android, browser extensions, and self-hosted instances. A single license can be activated on up to 5 personal devices simultaneously.',
 
-    'footer.desc': 'A Secure 2FA Management Tool.<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
-    'footer.rights': '&copy; 2026 NextMatrix. All rights reserved.',
+    'footer.desc': 'A Secure 2FA Management Tool developed and operated by NextMatrix LLC.<br><span style="font-size: 0.85em; opacity: 0.6; display: inline-block; margin-top: 8px;">2fa, 2fa-manager, 2fauth, end-to-end-encryption, zero-knowledge, cloudflare-workers</span>',
+    'footer.rights': '&copy; 2026 NextMatrix LLC. All rights reserved.',
 
 
     'footer.col1.title': 'Product',
