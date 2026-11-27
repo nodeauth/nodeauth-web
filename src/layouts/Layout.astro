@@ -31,41 +31,99 @@ const cnAlternateUrl = `${siteUrl}${basePath === '/' ? '/cn/' : `/cn${basePath}`
 const ogImageUrl = new URL(image, `${siteUrl}/`).toString();
 const isHome = normalizedPath === '/' || normalizedPath === '/cn/';
 
+const officialSameAs = [
+  'https://github.com/nextmatrixllc/nodeauth',
+  'https://github.com/nodeauth/nodeauth-worker',
+  'https://apps.apple.com/app/id6820337516',
+  'https://play.google.com/store/apps/details?id=com.nextmatrix.nodeauth',
+  'https://chromewebstore.google.com/detail/nodeauth/ejknfokfdojopelcbidgchnopeapnjgd',
+  'https://microsoftedge.microsoft.com/addons/detail/nodeauth/bclpbakllopgjhelikbhccpjkgbmfpgd',
+  'https://addons.mozilla.org/en-US/firefox/addon/nodeauth/',
+];
+
+const faqItems = isHome
+  ? [1, 2, 3, 4, 5, 6].map((idx) => ({
+      '@type': 'Question',
+      name: t(`faq.q${idx}` as any),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: t(`faq.a${idx}` as any),
+      },
+    }))
+  : [];
+
 const structuredData = isHome
   ? {
       '@context': 'https://schema.org',
       '@graph': [
-        ...(lang === 'en'
-          ? [
-              {
-                '@type': 'WebSite',
-                name: 'NodeAuth',
-                alternateName: ['NodeAuth 2FA', 'NodeAuth Authenticator'],
-                url: 'https://nodeauth.io/',
-                inLanguage: 'en',
-              },
-            ]
-          : []),
+        {
+          '@type': 'WebSite',
+          '@id': `${siteUrl}${lang === 'cn' ? '/cn/#website' : '/#website'}`,
+          name: 'NodeAuth',
+          alternateName: ['NodeAuth 2FA', 'NodeAuth Authenticator'],
+          url: canonicalUrl,
+          inLanguage: htmlLang,
+          publisher: { '@id': 'https://nextmatrix.app/#organization' },
+        },
         {
           '@type': 'SoftwareApplication',
+          '@id': 'https://nodeauth.io/#software',
           name: 'NodeAuth',
           applicationCategory: 'SecurityApplication',
           operatingSystem: 'iOS, Android, Chrome, Edge, Firefox, Web',
+          inLanguage: htmlLang,
           description,
           url: canonicalUrl,
+          downloadUrl: 'https://apps.apple.com/app/id6820337516',
           image: ogImageUrl,
           screenshot: ogImageUrl,
-          offers: {
-            '@type': 'AggregateOffer',
-            lowPrice: '0',
-            highPrice: '9.99',
-            priceCurrency: 'USD',
+          softwareHelp: {
+            '@type': 'WebSite',
+            url: lang === 'cn' ? 'https://wiki.nodeauth.io/cn/' : 'https://wiki.nodeauth.io/',
           },
+          sameAs: officialSameAs,
+          offers: [
+            {
+              '@type': 'Offer',
+              name: lang === 'cn' ? '免费本地版 (Mobile App)' : 'Free Local Mobile App',
+              price: '0',
+              priceCurrency: 'USD',
+              url: canonicalUrl,
+            },
+            {
+              '@type': 'Offer',
+              name: t('price.tier.monthly.name'),
+              price: '1.99',
+              priceCurrency: 'USD',
+              url: 'https://license.nextmatrix.app/?product=nodeauth&tier=pro_monthly',
+            },
+            {
+              '@type': 'Offer',
+              name: t('price.tier.annual.name'),
+              price: '5.99',
+              priceCurrency: 'USD',
+              url: 'https://license.nextmatrix.app/?product=nodeauth&tier=pro_annual',
+            },
+            {
+              '@type': 'Offer',
+              name: t('price.tier.lifetime.name'),
+              price: '9.99',
+              priceCurrency: 'USD',
+              url: 'https://license.nextmatrix.app/?product=nodeauth&tier=pro_lifetime',
+            },
+          ],
           publisher: {
             '@type': 'Organization',
+            '@id': 'https://nextmatrix.app/#organization',
             name: 'NextMatrix LLC',
-            url: 'https://nextmatrix.app',
+            url: 'https://nextmatrix.app/',
           },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': `${canonicalUrl}#faq`,
+          inLanguage: htmlLang,
+          mainEntity: faqItems,
         },
       ],
     }

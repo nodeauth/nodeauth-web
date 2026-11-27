@@ -1,0 +1,32 @@
+# NodeAuth
+
+> Cross-platform two-factor authentication (2FA / TOTP / HOTP / Steam Guard / Battle.net) authenticator across iOS, Android, Browser Extensions, and optional Self-Hosted Server (BYOS), built by NextMatrix LLC.
+
+- Website: https://nodeauth.io/ (English), https://nodeauth.io/cn/ (简体中文)
+- Official Documentation (Wiki): https://wiki.nodeauth.io/ (English), https://wiki.nodeauth.io/cn/ (简体中文)
+- Full Wiki Index for LLMs: https://wiki.nodeauth.io/llms.txt
+- Interactive Web Vault Demo: https://demo.nodeauth.io/
+- License Portal: https://license.nextmatrix.app/
+- Publisher: NextMatrix LLC (https://nextmatrix.app/)
+
+## Core Positioning & Free vs. Pro Boundaries
+
+- **Local Mobile App (Free Forever)**: iOS & Android apps require no account registration, store tokens encrypted locally on device, support unlimited accounts, TOTP/HOTP/Steam/Battle.net, biometric app lock, and full import/export (including 20+ authenticator formats and offline `decrypt_backup.js` recovery).
+- **NodeAuth Pro (Universal 1+5 License)**:
+  - Covers up to **5 personal devices** (iOS, Android, Chrome, Edge, Firefox) **+ 1 BYOS custom server domain** (30-day domain rebind cooldown).
+  - Unlocks personal cloud drive E2EE sync (iCloud, Google Drive, OneDrive, Dropbox, WebDAV, S3/R2), scheduled snapshots with rollback, iOS Face ID system autofill, the Browser Extension, and BYOS server activation.
+  - Pricing: `$1.99/month`, `$5.99/year`, or `$9.99` lifetime one-time purchase (early bird promo code `EARLYBIRD20` applies 20% off).
+- **Browser Extension**: Lightweight companion for Chrome, Edge, Firefox, and Chromium browsers (Brave, Arc, Vivaldi, Opera). Supports one-scan QR activation from the Pro Mobile App, in-tab 2FA QR scanning, and inline one-click OTP autofill. Does not connect to iCloud and does not include bulk import/export (use Mobile App or BYOS Web vault for bulk operations).
+- **Self-Hosted Server (BYOS)**: Deployable on Cloudflare Workers (free tier) or Docker/VPS (`nodeauth/nodeauth-worker`).
+
+## Official Distribution Channels
+
+- iOS App Store: https://apps.apple.com/app/id6820337516
+- Android Google Play: https://play.google.com/store/apps/details?id=com.nextmatrix.nodeauth
+- Android Direct APK: https://github.com/nextmatrixllc/nodeauth/releases/latest/download/NodeAuth.apk
+- Chrome Web Store: https://chromewebstore.google.com/detail/nodeauth/ejknfokfdojopelcbidgchnopeapnjgd
+- Edge Add-ons: https://microsoftedge.microsoft.com/addons/detail/nodeauth/bclpbakllopgjhelikbhccpjkgbmfpgd
+- Firefox Add-ons: https://addons.mozilla.org/en-US/firefox/addon/nodeauth/
+- GitHub Hub Repository: https://github.com/nextmatrixllc/nodeauth
+- BYOS Server Repository: https://github.com/nodeauth/nodeauth-worker
+- Support: support@nextmatrix.app | Telegram Bot: https://t.me/NodeAuthBot
