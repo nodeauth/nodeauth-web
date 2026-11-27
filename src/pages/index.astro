@@ -2,14 +2,8 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import Home from '../components/Home.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
-const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
-<Layout
-    title="NodeAuth | Cross-Platform 2FA Authenticator - NextMatrix"
-    description={t('hero.desc')}
->
+<Layout>
     <Home />
 </Layout>

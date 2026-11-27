@@ -2,14 +2,8 @@
 // src/pages/cn/index.astro
 import Layout from '../../layouts/Layout.astro';
 import Home from '../../components/Home.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
-
-const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
-<Layout
-    title="NodeAuth | 跨平台二步验证（2FA）身份验证器 - NextMatrix"
-    description={t('hero.desc')}
->
+<Layout>
     <Home />
 </Layout>

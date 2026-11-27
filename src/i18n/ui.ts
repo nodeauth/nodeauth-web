@@ -7,8 +7,8 @@ export const defaultLang = 'en';
 
 export const ui = {
   cn: {
-    'site.title': 'NodeAuth | 跨平台二步验证（2FA）身份验证器',
-    'site.desc': 'NodeAuth 是一款跨平台二步验证（2FA）身份验证器，覆盖手机 App、浏览器扩展与自建服务端。无需注册官方账号，验证码默认加密保存在本机并支持离线免费使用。',
+    'site.title': 'NodeAuth – 跨平台 2FA/TOTP 身份验证器 App、浏览器扩展与自建服务端',
+    'site.desc': 'NodeAuth 是一款跨平台二步验证 (2FA/TOTP) 身份验证器，覆盖 iOS/Android 手机 App、浏览器扩展与 Cloudflare Worker / Docker 自建服务端，无需注册即可离线免费使用。',
 
     'hero.tag': '早鸟优惠：结算输入 EARLYBIRD20 立享 8 折',
     'hero.title': '安全私密的 2FA 验证，<br>始终由你 <span class="text-gradient">自主掌控</span>。',
@@ -127,8 +127,8 @@ export const ui = {
     'footer.contact_country': 'United States',
   },
   en: {
-    'site.title': 'NodeAuth | Cross-Platform 2FA Authenticator',
-    'site.desc': 'NodeAuth is a cross-platform two-factor authentication (2FA) authenticator across Mobile App, Browser Extension, and Self-Hosted Server. Use it offline for free with no sign-up.',
+    'site.title': 'NodeAuth – 2FA / TOTP Authenticator App, Extension & Self-Hosting',
+    'site.desc': 'NodeAuth is a private, cross-platform 2FA/TOTP authenticator across iOS/Android Mobile App, Browser Extension, and Cloudflare Worker / Docker self-hosted server—free offline with no sign-up.',
 
     'hero.tag': 'Launch Offer: Use EARLYBIRD20 for 20% off Pro',
     'hero.title': 'Private 2FA,<br><span class="text-gradient">Under Your Control.</span>',
