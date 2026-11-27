@@ -12,35 +12,87 @@ interface Props {
 }
 
 const lang = getLangFromUrl(Astro.url);
+const htmlLang = lang === 'cn' ? 'zh-CN' : 'en';
 const t = useTranslations(lang);
 
-const { 
-  title = t('site.title'), 
-  description = t('site.desc'), 
-  image = '/og-image.png' 
+const {
+  title = t('site.title'),
+  description = t('site.desc'),
+  image = '/og-image.png',
 } = Astro.props;
+
+const siteUrl = (Astro.site ? Astro.site.toString() : 'https://nodeauth.io').replace(/\/$/, '');
+const rawPath = Astro.url.pathname;
+const normalizedPath = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+const canonicalUrl = `${siteUrl}${normalizedPath}`;
+const basePath = normalizedPath === '/cn/' ? '/' : normalizedPath.replace(/^\/cn\//, '/');
+const enAlternateUrl = `${siteUrl}${basePath}`;
+const cnAlternateUrl = `${siteUrl}${basePath === '/' ? '/cn/' : `/cn${basePath}`}`;
+const ogImageUrl = new URL(image, `${siteUrl}/`).toString();
+const isHome = normalizedPath === '/' || normalizedPath === '/cn/';
+
+const structuredData = isHome
+  ? {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ...(lang === 'en'
+          ? [
+              {
+                '@type': 'WebSite',
+                name: 'NodeAuth',
+                alternateName: ['NodeAuth 2FA', 'NodeAuth Authenticator'],
+                url: 'https://nodeauth.io/',
+                inLanguage: 'en',
+              },
+            ]
+          : []),
+        {
+          '@type': 'SoftwareApplication',
+          name: 'NodeAuth',
+          applicationCategory: 'SecurityApplication',
+          operatingSystem: 'iOS, Android, Chrome, Edge, Firefox, Web',
+          description,
+          url: canonicalUrl,
+          image: ogImageUrl,
+          screenshot: ogImageUrl,
+          offers: {
+            '@type': 'AggregateOffer',
+            lowPrice: '0',
+            highPrice: '9.99',
+            priceCurrency: 'USD',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'NextMatrix LLC',
+            url: 'https://nextmatrix.app',
+          },
+        },
+      ],
+    }
+  : null;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+
     <title>{title}</title>
 
     <!-- SEO: Canonical & Hreflang -->
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || 'https://nodeauth.io')} />
-    <link rel="alternate" hreflang="en" href="https://nodeauth.io/" />
-    <link rel="alternate" hreflang="zh-CN" href="https://nodeauth.io/cn/" />
-    <link rel="alternate" hreflang="x-default" href="https://nodeauth.io/" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enAlternateUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={cnAlternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={enAlternateUrl} />
 
     <!-- Theme Initialization Script (Prevents FOUC) -->
     <script is:inline>
@@ -56,17 +108,22 @@ const {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="NodeAuth" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
   </head>
   <body>
     <Header />

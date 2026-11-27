@@ -7,6 +7,8 @@ export interface Props {
   description: string;
   buttonText?: string;
   buttonLink?: string;
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
   reverse?: boolean;
 }
 
@@ -17,6 +19,8 @@ const {
   description, 
   buttonText, 
   buttonLink = "#", 
+  secondaryButtonText,
+  secondaryButtonLink = "#",
   reverse = false 
 } = Astro.props;
 ---
@@ -25,7 +29,20 @@ const {
         <div class="section-subtitle">{subtitle}</div>
         <h2 class="section-title" set:html={title}></h2>
         <p class="section-desc" style="margin-left: 0;">{description}</p>
-        {buttonText && <a href={buttonLink} target={buttonLink?.startsWith('http') ? '_blank' : '_self'} class="btn-secondary" style="margin-top: 1rem; display: inline-block;">{buttonText}</a>}
+        {(buttonText || secondaryButtonText) && (
+            <div class="feature-buttons">
+                {buttonText && (
+                    <a href={buttonLink} target={buttonLink?.startsWith('http') ? '_blank' : '_self'} rel={buttonLink?.startsWith('http') ? 'noopener noreferrer' : undefined} class="btn-secondary">
+                        {buttonText}
+                    </a>
+                )}
+                {secondaryButtonText && (
+                    <a href={secondaryButtonLink} target={secondaryButtonLink?.startsWith('http') ? '_blank' : '_self'} rel={secondaryButtonLink?.startsWith('http') ? 'noopener noreferrer' : undefined} class="btn-secondary">
+                        {secondaryButtonText} &nearr;
+                    </a>
+                )}
+            </div>
+        )}
         <slot name="actions" />
     </div>
     <div class="feature-visual">
@@ -34,6 +51,13 @@ const {
 </section>
 
 <style>
+.feature-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
 /* 4 & 5. Feature Split Layout */
 .feature-split {
     display: flex;

@@ -5,15 +5,25 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<!-- Wiki Feature Block -->
+<!-- Wiki & Self-Host (BYOS) Feature Block -->
 <FeatureBlock
+    id="self-host"
     subtitle={t('wiki.subtitle')}
     title={t('wiki.title')}
     description={t('wiki.desc')}
-    buttonText={t('wiki.btn')}
-    buttonLink="https://wiki.nodeauth.io"
     reverse={true}
 >
+    <div slot="actions" style="margin-top: 1.25rem; display: flex; gap: 0.85rem; flex-wrap: wrap;">
+        <a href={lang === 'en' ? 'https://wiki.nodeauth.io/' : 'https://wiki.nodeauth.io/cn/'} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            {t('wiki.btn')}
+        </a>
+        <a href="https://demo.nodeauth.io" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            {t('hero.demo')} &nearr;
+        </a>
+        <a href="https://tools.nodeauth.io" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            {t('wiki.tools_btn')} &nearr;
+        </a>
+    </div>
     <!-- Custom visual via Slot: Terminal Mockup -->
     <div style="width: 100%; max-width: 380px; background: #1e1e1e; border-radius: 12px; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; margin: 0 auto; text-align: left; color: #d4d4d4; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.85rem; transition: transform 0.4s ease;" class="term-mockup">
         <!-- Terminal Header -->

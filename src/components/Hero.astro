@@ -1,5 +1,5 @@
 ---
-// src/components/Hero.astro
+// src/components/nodeauth/Hero.astro
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -24,8 +24,10 @@ const t = useTranslations(lang);
     </div>
 
     <div class="hero-actions">
-        <a href="#license" class="btn-primary">{t('hero.buy')}</a>
-        <a href="https://demo.nodeauth.io" target="_blank" rel="noopener noreferrer" class="btn-secondary">{t('hero.demo')}</a>
+        <a href="#mobile-app" class="btn-primary">{t('hero.app')}</a>
+        <a href="#extension" class="btn-secondary">{t('hero.extension')}</a>
+        <a href="#self-host" class="btn-secondary">{t('hero.byos')}</a>
+        <a href="#license" class="btn-secondary">{t('hero.buy')}</a>
     </div>
 </section>
 
@@ -34,7 +36,7 @@ const t = useTranslations(lang);
     padding-top: clamp(6rem, 8vw, 7.5rem);
     padding-bottom: clamp(1rem, 3vw, 2rem);
     position: relative;
-    max-width: none; /* override section-wrapper max-width for background if needed, but keeping it centered is fine */
+    max-width: none;
     overflow: hidden;
 }
 
@@ -112,9 +114,6 @@ const t = useTranslations(lang);
     background: rgba(10, 132, 255, 0.1);
     border-color: rgba(10, 132, 255, 0.2);
 }
-.hero-banner:hover {
-    transform: translateY(-2px);
-}
 
 .hero-features {
     display: flex;
@@ -135,7 +134,8 @@ const t = useTranslations(lang);
 
 .hero-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
     justify-content: center;
 }
 

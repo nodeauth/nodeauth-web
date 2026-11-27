@@ -11,7 +11,7 @@ const t = useTranslations(lang);
     title={t('feat.backup.title')}
     description={t('feat.backup.desc')}
     buttonText={t('feat.backup.btn')}
-    buttonLink={lang === 'en' ? 'https://wiki.nodeauth.io/en/data/backup' : 'https://wiki.nodeauth.io/data/backup'}
+    buttonLink={lang === 'en' ? 'https://wiki.nodeauth.io/data/backup' : 'https://wiki.nodeauth.io/cn/data/backup'}
     reverse={true}
 >
         <div class="mockup-wrapper" style="width: 100%; max-width: 440px; aspect-ratio: 44/36; margin: 0 auto; position: relative;">
@@ -92,7 +92,7 @@ const t = useTranslations(lang);
             
             <div style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); display: flex; justify-content: center; align-items: center; gap: 8px; z-index: 5;">
                 <div class="anim-blink" style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></div>
-                Syncing to 8 remote sources
+                {t('feat.backup.mock_status')}
             </div>
         </div>
     </div>
